@@ -47,16 +47,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Kategori</label>
-                        <input type="text" name="kategori" class="form-control" value="{{ $barang->kategori }}">
-                        <div class="text-danger">
-                            @error('kategori')
-                                {{ $message }}
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label>Harga</label>
                         <input type="number" name="harga" class="form-control" value="{{ $barang->harga }}">
                         <div class="text-danger">

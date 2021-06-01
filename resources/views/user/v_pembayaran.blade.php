@@ -27,11 +27,6 @@
                     <div align="right">
                         <a href=""><div class="btn btn-info">Bayar</div></a>
                     </div>
-                @else
-                    <div align="center">
-                        <h4>Keranjang belanja anda kosong</h1>
-                    </div>
-                @endif
             </div>
             <!-- /.box-body -->
         </div>

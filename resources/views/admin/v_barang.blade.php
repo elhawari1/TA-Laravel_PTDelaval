@@ -26,7 +26,6 @@
                     <th>Nama</th>
                     <th>Gambar</th>
                     <th>Deskripsi</th>
-                    <th>Kategori</th>
                     <th>Harga</th>
                     <th>Stok</th>
                     <th>Tanggal</th>
@@ -41,7 +40,6 @@
                     <td>{{ $data->nama }}</td>
                     <td><img src="{{ url('foto/barang/' . $data->gambar) }}" width="150px"></td>
                     <td>{{ $data->deskripsi }}</td>
-                    <td>{{ $data->kategori }}</td>
                     <td>{{ $data->harga }}</td>
                     <td>{{ $data->stok }}</td>
                     <td>{{ $data->tanggal }}</td>

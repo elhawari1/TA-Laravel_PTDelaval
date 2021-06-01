@@ -39,16 +39,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Kategori</label>
-                        <input type="text" name="kategori" class="form-control" value="{{ old('kategori') }}">
-                        <div class="text-danger">
-                            @error('kategori')
-                            {{ $message }}
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label>Harga</label>
                         <input type="number" name="harga" class="form-control" value="{{ old('harga') }}">
                         <div class="text-danger">

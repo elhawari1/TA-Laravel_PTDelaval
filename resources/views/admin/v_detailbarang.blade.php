@@ -22,12 +22,6 @@
         </tr>
 
         <tr>
-            <th width="100px">Kategori</th>
-            <th width="100px">:</th>
-            <th>{{ $barang->kategori }}</th>
-        </tr>
-
-        <tr>
             <th width="100px">Harga</th>
             <th width="100px">:</th>
             <th>{{ $barang->harga }}</th>

@@ -23,11 +23,6 @@
                         </tr>
 
                         <tr>
-                            <td>Kategori</td>
-                            <td><strong>{{ $barang->kategori }}</strong></td>
-                        </tr>
-
-                        <tr>
                             <td>Stok</td>
                             <td><strong>{{ $barang->stok }}</strong></td>
                         </tr>
