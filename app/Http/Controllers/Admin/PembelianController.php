@@ -21,7 +21,7 @@ class PembelianController extends Controller
             ];
             return view('user.v_dashboard', $data);
         } else {
-        return view('admin.v_pembelian');
+        return view('admin_delaval.v_pembelian');
         }
     }
 }

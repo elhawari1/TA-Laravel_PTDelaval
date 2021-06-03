@@ -1,6 +1,7 @@
 @extends('layout_user.v_template')
 @section('title', 'Keranjang saya')
 @section('content')
+
     <div class="container">
         <div class="box">
             <div class="box-header">

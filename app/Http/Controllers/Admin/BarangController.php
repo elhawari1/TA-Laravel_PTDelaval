@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangModel;
-use Dompdf\Dompdf;
 use Illuminate\Support\Facades\Auth;
-
-
 
 class BarangController extends Controller
 {
@@ -28,7 +25,7 @@ class BarangController extends Controller
             $data = [
                 'barang' => $this->BarangModel->allData(),
             ];
-        return view('admin.v_barang', $data);
+        return view('admin_delaval.v_barang', $data);
         }
     }
 
@@ -41,7 +38,7 @@ class BarangController extends Controller
         $data = [
             'barang' => $this->BarangModel->detailData($id_brg),
         ];
-        return view('admin.v_detailbarang', $data);
+        return view('admin_delaval.v_detailbarang', $data);
     }
 
     //link tambah data
@@ -53,7 +50,7 @@ class BarangController extends Controller
             ];
             return view('user.v_dashboard', $data);
         } else {
-        return view('admin.v_addbarang');
+        return view('admin_delaval.v_addbarang');
         }
     }
 
@@ -109,7 +106,7 @@ class BarangController extends Controller
             $data = [
             'barang' => $this->BarangModel->detailData($id_brg),
         ];
-        return view('admin.v_editbarang', $data);
+        return view('admin_delaval.v_editbarang', $data);
     }
     }
 
@@ -171,45 +168,4 @@ class BarangController extends Controller
         $this->BarangModel->deleteData($id_brg);
         return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Hapus !!');
     }
-
-    public function print()
-    {
-        if (Auth::user()->role == 2) {
-            $data = [
-                'barang' => $this->BarangModel->allData(),
-            ];
-            return view('user.v_dashboard', $data);
-        } else {
-        $data = [
-            'barang' => $this->BarangModel->allData(),
-        ];
-        return view('admin.v_print', $data);
-    }
-    }
-
-    public function printpdf()
-    {
-        if (Auth::user()->role == 2) {
-            $data = [
-                'barang' => $this->BarangModel->allData(),
-            ];
-            return view('user.v_dashboard', $data);
-        } else {
-        $data = [
-            'barang' => $this->BarangModel->allData(),
-        ];
-        $html =  view('admin.v_printpdf', $data);
-
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml('$html');
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
-        // Render the HTML as PDF
-        $dompdf->render();
-        // Output the generated PDF to Browser
-        $dompdf->stream();
-    }
-    }
-
 }

@@ -14,6 +14,7 @@ class DashboardController extends Controller
         $this->KomentarModel = new KomentarModel();
         $this->BarangModel = new BarangModel();
     }
+
     public function index()
     {
         if (Auth::user()->role == 2) {
@@ -22,7 +23,7 @@ class DashboardController extends Controller
             ];
             return view('user.v_dashboard', $data);
         }else{
-            return view('admin.v_dashboard');
+            return view('admin_delaval.v_dashboard');
         }
     }
 
@@ -37,7 +38,7 @@ class DashboardController extends Controller
         $data = [
             'komentar' => $this->KomentarModel->allData(),
         ];
-        return view('admin.v_komentaruser', $data);
+        return view('admin_delaval.v_komentaruser', $data);
     }
     }
 
