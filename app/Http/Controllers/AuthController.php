@@ -43,11 +43,7 @@ class AuthController extends Controller
 
         ]);
 
-        //$validator = Validator::make($request->all($valid),);
 
-        // if ($validator->fails()) {
-        //     return redirect()->back()->withErrors($valid)->withInput($request->all);
-        // } else {
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -56,7 +52,6 @@ class AuthController extends Controller
             ]);
 
             return redirect()->route('login')->with('pesan', 'Register Berhasil !!');
-        // }
     }
     public function logout()
     {
