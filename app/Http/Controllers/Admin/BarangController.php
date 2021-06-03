@@ -29,18 +29,6 @@ class BarangController extends Controller
         }
     }
 
-    //link detail
-    public function detail($id_brg)
-    {
-        if (!$this->BarangModel->detailData($id_brg)) {
-            abort(404);
-        }
-        $data = [
-            'barang' => $this->BarangModel->detailData($id_brg),
-        ];
-        return view('admin_delaval.v_detailbarang', $data);
-    }
-
     //link tambah data
     public function add()
     {
