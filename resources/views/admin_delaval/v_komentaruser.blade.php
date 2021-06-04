@@ -51,7 +51,7 @@
                     <td>{{ $data->pesan }}</td>
                     <td>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id }}">
-                            Delete
+                        <i class="icon fa fa-trash"></i>
                         </button>
                     </td>
                   </tr>

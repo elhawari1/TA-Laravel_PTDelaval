@@ -25,7 +25,11 @@
     <section class="content">
       <div class="container-fluid">
 
+<<<<<<< HEAD
          <form action="/barang/insert" method="POST" enctype="multipart/form-data">
+=======
+        <form action="/barang/insert" method="POST" enctype="multipart/form-data">
+>>>>>>> 62b6f2f (fix frontend admin, login dan register)
         @csrf
         <div class="content">
             <div class="row">

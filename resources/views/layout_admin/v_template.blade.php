@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="{{ asset('template_admin') }}/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -45,8 +45,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('template_admin') }}/dist/img/AdminLTELogo.png"
-                alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="{{ asset('template_admin') }}/dist/img/delaval.png"
+                alt="delaval" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -55,7 +55,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="{{ asset('template_admin') }}/#"
-                        role="button"><i class="fas fa-bars"></i></a>
+                        role="button"><i class="icon fas fa-bars"></i></a>
                 </li>
             </ul>
 

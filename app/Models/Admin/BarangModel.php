@@ -12,6 +12,16 @@ class BarangModel extends Model
         return DB::table('tbl_barang')->get();
     }
 
+    public function allDataKomentar()
+    {
+        return DB::table('komentar')->get();
+    }
+
+    public function jumalh()
+    {
+        return DB::table('tbl_barang')->get()->count();
+    }
+
     public function detailData($id_brg)
     {
         return DB::table('tbl_barang')->where('id_brg', $id_brg)->first();

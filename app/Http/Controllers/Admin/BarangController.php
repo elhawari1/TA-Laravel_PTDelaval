@@ -17,15 +17,16 @@ class BarangController extends Controller
     public function index()
     {
         if (Auth::user()->role == 2) {
-        $data = [
-            'barang' => $this->BarangModel->allData(),
-        ];
-         return view('user.v_dashboard', $data);
-        }else{
             $data = [
                 'barang' => $this->BarangModel->allData(),
             ];
-        return view('admin_delaval.v_barang', $data);
+            return view('user.v_dashboard', $data);
+        } else {
+            $data = [
+                'barang' => $this->BarangModel->allData(),
+
+            ];
+            return view('admin_delaval.v_barang', $data);
         }
     }
 
@@ -38,7 +39,7 @@ class BarangController extends Controller
             ];
             return view('user.v_dashboard', $data);
         } else {
-        return view('admin_delaval.v_addbarang');
+            return view('admin_delaval.v_addbarang');
         }
     }
 
@@ -53,7 +54,7 @@ class BarangController extends Controller
             'harga' => 'required',
             'stok' => 'required',
             'tanggal' => 'required',
-        ],[
+        ], [
             'nama.required' => 'wajib diisi !!',
             'gambar.required' => 'wajib diisi !!',
             'deskripsi.required' => 'wajib diisi !!',
@@ -64,7 +65,7 @@ class BarangController extends Controller
         //jika validasi tidak ada maka simpan data
         //upload gambar / foto
         $file = Request()->gambar;
-        $fileName = Request()->nama.'.'. $file->extension();
+        $fileName = Request()->nama . '.' . $file->extension();
         $file->move(public_path('foto/barang'), $fileName);
 
         $data = [
@@ -92,10 +93,10 @@ class BarangController extends Controller
             abort(404);
         } else {
             $data = [
-            'barang' => $this->BarangModel->detailData($id_brg),
-        ];
-        return view('admin_delaval.v_editbarang', $data);
-    }
+                'barang' => $this->BarangModel->detailData($id_brg),
+            ];
+            return view('admin_delaval.v_editbarang', $data);
+        }
     }
 
     //validasi update
@@ -132,7 +133,7 @@ class BarangController extends Controller
                 'tanggal' => Request()->tanggal,
             ];
             $this->BarangModel->editData($id_brg, $data);
-        }else {
+        } else {
             //jika tidak ingin ganti foto
             $data = [
                 'nama' => Request()->nama,
@@ -149,9 +150,9 @@ class BarangController extends Controller
     public function delete($id_brg)
     {
         //hapus foto di folder public
-        $barang= $this->BarangModel->detailData($id_brg);
+        $barang = $this->BarangModel->detailData($id_brg);
         if ($barang->gambar <> "") {
-            unlink(public_path('foto/barang').'/'. $barang->gambar);
+            unlink(public_path('foto/barang') . '/' . $barang->gambar);
         }
         $this->BarangModel->deleteData($id_brg);
         return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Hapus !!');
