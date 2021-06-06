@@ -34,7 +34,7 @@
               $b = 0;
               ?>
               @foreach($barang as $a)
-              <?php $b++; ?> 
+              <?php $b++; ?>
               @endforeach
               {{$b}}
             </span>
@@ -53,7 +53,7 @@
               $b = 0;
               ?>
               @foreach($komentar as $a)
-              <?php $b++; ?> 
+              <?php $b++; ?>
               @endforeach
               {{$b}}
             </span>

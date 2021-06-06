@@ -40,27 +40,27 @@
   <section class="ftco-section">
     <div class="ml-5">
       <div class="row text-center mt-4">
-        @foreach ($barang as $data)
-        <div class="card ml-3 mb-3" style="width: 18rem;">
-          <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
-          <div class="card-body">
-            <h5 class="card-title">{{ $data->nama }}</h5>
-            <span class="badge badge-success mb-3">Rp. {{ number_format($data->harga, 0, ',','.') }}</span>
-            <p class="card-text">{{ $data->deskripsi }}</p>
-          </div>
-          <div class="card-footer bg-transparent">
-              <div class="row">
-                <div class="col">
-                  <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px">Beli</a>
-                </div>
-                <div class="col">
-                  <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px">Detail</a>
-                </div>
-              </div>
-            </div>
+      @foreach ($barang as $data)
+      <div class="card ml-3 mb-3" style="width: 18rem;">
+        <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
+        <div class="card-body">
+          <h5 class="card-title">{{ $data->nama }}</h5>
+          <span class="badge badge-success mb-3">Rp. {{ number_format($data->harga, 0, ',','.') }}</span>
+          <p class="card-text">{{ $data->deskripsi }}</p>
         </div>
-        @endforeach
+        <div class="card-footer bg-transparent">
+          <div class="row">
+            <div class="col">
+              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px">Beli</a>
+            </div>
+            <div class="col">
+              <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px">Detail</a>
+            </div>
+          </div>
+        </div>
       </div>
+      @endforeach
+    </div>
     </div>
 </div>
 </section>

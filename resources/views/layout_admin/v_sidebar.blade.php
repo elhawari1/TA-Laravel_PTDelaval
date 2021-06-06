@@ -26,28 +26,28 @@
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                  <li class="nav-item">
-                     <a href="/" class="nav-link active">
+                     <a href="{{ route('/') }}" class="nav-link {{ Route::currentRouteName() === '/' ? 'active' : '' }}">
                          <font style="color: white;"><i class="nav-icon fas fa-tachometer-alt"></i>
                              <p>Dashboard</p>
                          </font>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/barang" class="nav-link">
+                     <a href="{{ route('barang') }}" class="nav-link {{ Route::currentRouteName() === 'barang' ? 'active' : '' }}">
                          <font style="color: white;"><i class="nav-icon fa fa-shopping-cart"></i>
                              <p>Barang</p>
                          </font>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/pembelian" class="nav-link">
+                     <a href="{{ route('pembelian') }}" class="nav-link {{ Route::currentRouteName() === 'pembelian' ? 'active' : '' }}">
                          <font style="color: white;"><i class="nav-icon fa fa-money-bill"></i>
                              <p>Pembelian</p>
                          </font>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/komentar" class="nav-link">
+                     <a href="{{ route('komentar') }}" class="nav-link {{ Route::currentRouteName() === 'komentar' ? 'active' : '' }}">
                          <font style="color: white;"><i class="nav-icon fa fa-comment"></i>
                              <p>Komentar</p>
                          </font>
@@ -67,6 +67,6 @@
     }
     .r{
         font-size: 20px;
-        
+
     }
 </style>

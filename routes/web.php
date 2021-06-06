@@ -27,7 +27,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
     //Halaman Admin
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index'])->name('/');
     // admin barang
     Route::get('/barang', [BarangController::class, 'index'])->name('barang');
     // admin detail barang
@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     // admin printpdf data barang
     Route::get('/barang/printpdf', [BarangController::class, 'printpdf']);
     // admin pembelian
-    Route::get('/pembelian', [PembelianController::class, 'index']);
+    Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
     // admin tampil data komentar user
     Route::get('/komentar', [DashboardController::class, 'indexkomentar'])->name('komentar');
     // admin hapus komentar
