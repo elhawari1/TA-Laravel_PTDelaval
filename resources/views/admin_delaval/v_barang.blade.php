@@ -95,12 +95,12 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">{{ $data->nama }}</h4>
+                <h2 class="modal-title">{{ $data->nama }}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left;">
+                    X</button>
             </div>
             <div class="modal-body">
-                <p>Apakah Anda Yakin Ingin Hapus Data Ini...??!!</p>
+                <p>Apakah anda yakin ingin menghapus barang ini?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
@@ -116,46 +116,62 @@
 
 @section('js')
 <!-- DataTables  & Plugins -->
-    <script src="{{ asset('template_admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/jszip/jszip.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Page specific script -->
-    <script>
-    $(function () {
+<script src="{{ asset('template_admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/jszip/jszip.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{ asset('template_admin') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function() {
         $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": [
-            {extend: 'colvis', postfixButtons: [ 'colvisRestore' ] },
-            {extend: 'pdf', title:'Data Barang PT Agri Servis Sakti',exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5, 6],
-                modifier: {
-                    page: 'current'
-                }
-            }},
-            {extend: 'excel', title: 'Data Barang PT Agri Servis Sakti',exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5, 6],
-                modifier: {
-                    page: 'current'
-                }
-            }},
-            {extend:'print',title: 'Data Barang PT Agri Servis Sakti',exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5, 6],
-                modifier: {
-                    page: 'current'
-                }
-            }},
-        ]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": [{
+                    extend: 'colvis',
+                    postfixButtons: ['colvisRestore']
+                },
+                {
+                    extend: 'pdf',
+                    title: 'Data Barang PT Agri Servis Sakti',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        modifier: {
+                            page: 'current'
+                        }
+                    }
+                },
+                {
+                    extend: 'excel',
+                    title: 'Data Barang PT Agri Servis Sakti',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        modifier: {
+                            page: 'current'
+                        }
+                    }
+                },
+                {
+                    extend: 'print',
+                    title: 'Data Barang PT Agri Servis Sakti',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        modifier: {
+                            page: 'current'
+                        }
+                    }
+                },
+            ]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-    </script>
+</script>
 
 @endsection

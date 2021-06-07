@@ -32,8 +32,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="text" name="nama" placeholder="Nama Barang" class="form-control"
-                        value="{{ old('nama') }}">
+                    <input type="text" name="nama" placeholder="Nama Barang" class="form-control" value="{{ old('nama') }}">
                     <div class="text-danger">
                         @error('nama')
                         {{ $message }}
@@ -43,8 +42,7 @@
 
                 <div class="form-group">
                     <h4>Gambar</h4>
-                    <input id="input-fa" type="file" name="gambar" class="form-control file" value="{{ old('gambar') }}"
-                        data-browse-on-zone-click="true">
+                    <input id="input-fa" type="file" name="gambar" class="form-control file" value="{{ old('gambar') }}" data-browse-on-zone-click="true">
                     <div class="text-danger">
                         @error('gambar')
                         {{ $message }}
@@ -57,8 +55,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-control"
-                        value="{{ old('deskripsi') }}">
+                    <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-control" value="{{ old('deskripsi') }}">
                     <div class="text-danger">
                         @error('deskripsi')
                         {{ $message }}
@@ -71,8 +68,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="number" name="harga" placeholder="Harga Barang" class="form-control"
-                        value="{{ old('harga') }}">
+                    <input type="text" id="rupiah" name="harga" placeholder="Harga Barang" class="form-control" value="{{ old('harga') }}">
                     <div class="text-danger">
                         @error('harga')
                         {{ $message }}
@@ -85,8 +81,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="number" name="stok" placeholder="Stok Barang" class="form-control"
-                        value="{{ old('stok') }}">
+                    <input type="number" name="stok" placeholder="Stok Barang" class="form-control" value="{{ old('stok') }}">
                     <div class="text-danger">
                         @error('stok')
                         {{ $message }}
@@ -115,4 +110,31 @@
 
     </div><!-- /.container-fluid -->
 </section>
+
+<script type="text/javascript">
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e) {
+        // tambahkan 'Rp.' pada saat form di ketik
+        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
 @endsection
