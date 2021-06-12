@@ -51,7 +51,7 @@
         <div class="card-footer bg-transparent">
           <div class="row">
             <div class="col">
-              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px">Beli</a>
+              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px" onclick="sweetAlert1()">Beli</a>
             </div>
             <div class="col">
               <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px">Detail</a>

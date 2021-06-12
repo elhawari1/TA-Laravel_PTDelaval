@@ -158,6 +158,8 @@
             uploadUrl: "/file-upload-batch/2"
         });
     </script>
+
+    @yield('js')
 </body>
 
 </html>

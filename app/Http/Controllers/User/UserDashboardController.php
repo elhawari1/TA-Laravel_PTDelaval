@@ -16,7 +16,6 @@ class UserDashboardController extends Controller
 
     public function index()
     {
-
         $data = [
             'barang' => $this->BarangModel->allData(),
         ];

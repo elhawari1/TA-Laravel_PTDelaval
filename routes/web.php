@@ -60,6 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/pt_delaval', [UserDashboardController::class, 'index']);
 // user detail barang
 Route::get('/detail/barang/{id_brg}', [UserDashboardController::class, 'detail']);
+// user produk Kami
+Route::get('/produk', [UserDashboardController::class, 'produk']);
+// user Tentang Kami
+Route::get('/about', [UserDashboardController::class, 'about']);
 // user Kontak Kami
 Route::get('/kontak', [UserDashboardController::class, 'kontak'])->name('kontak');
 
@@ -67,10 +71,6 @@ Route::group(['middleware' => 'auth'], function () {
     // user tambah komentar Kami
     Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 });
-// user Tentang Kami
-Route::get('/about', [UserDashboardController::class, 'about']);
-// user produk Kami
-Route::get('/produk', [UserDashboardController::class, 'produk']);
 // user keranjang Kami
 Route::group(
     ['middleware' => 'auth'],

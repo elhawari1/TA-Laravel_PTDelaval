@@ -57,7 +57,9 @@
                     <a href="/keranjang">
                         <div class="btn btn-danger">Kembali</div>
                     </a>
-                    <button class="btn btn-primary" onclick="sweetAlert()">Bayar</button>
+                    <a href="/bayar">
+                        <div class="btn btn-primary" onclick="sweetAlert()">Bayar</div>
+                    </a>
                 </div>
             </div>
     </div>

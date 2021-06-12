@@ -11,7 +11,7 @@
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet"></link>
 
     {{-- untuk file input barang --}}
-    <link rel="stylesheet"
+    <link rel="stylesheet"  
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.5/css/fileinput.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css" media="all"
         rel="stylesheet" type="text/css" />
@@ -119,8 +119,18 @@
     function sweetAlert()
     {
     Swal.fire(
-    'Ini judul',
-    'Ini text dibawah judul',
+    'Terimakasih Telah Melakukan Pemesanan',
+    '',
+    'success'
+    )
+    }
+    </script>
+    <script type="text/javascript">
+    function sweetAlert1()
+    {
+    Swal.fire(
+    '',
+    'Produk Telah Ditambahkan Ke Keranjang Belanja',
     'success'
     )
     }
