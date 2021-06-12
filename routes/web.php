@@ -72,8 +72,21 @@ Route::get('/about', [UserDashboardController::class, 'about']);
 // user produk Kami
 Route::get('/produk', [UserDashboardController::class, 'produk']);
 // user keranjang Kami
+Route::group(
+    ['middleware' => 'auth'],
+    function () {
 Route::get('/keranjang', [UserDashboardController::class, 'keranjang'])->name('keranjang');
 // user tambah keranjang Kami
 Route::get('/keranjang/tambah/{id}', [UserDashboardController::class, 'tambah_keranjang']);
+// user hapus semua keranjang
+Route::get('/hapuskeranjang', [UserDashboardController::class, 'hapus_keranjang'])->name('hapuskeranjang');
+// user tambah satuan pada tombol plus keranjang
+Route::get('/tambah/{id}', [UserDashboardController::class, 'tambah']);
+// user kurang satuan pada tombol minus keranjang
+Route::get('/kurang/{id}', [UserDashboardController::class, 'kurang']);
 // user pembayaran
 Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran']);
+// user bayar
+Route::get('/bayar', [UserDashboardController::class, 'bayar']);
+    }
+);

@@ -75,7 +75,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -37479,7 +37479,7 @@ a.disabled.mailbox-attachment-close {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url('../../../template_user/images/bg_login.jpeg')no-repeat;
+  background: url('../../../template_user/images/bg_login.jpg')no-repeat;
   -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;

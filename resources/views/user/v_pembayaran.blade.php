@@ -1,34 +1,64 @@
 @extends('layout_user.v_template')
 @section('title', 'Pembayaran saya')
+
 @section('content')
-<div class="container">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Pembayaran</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body ">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Harga</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <td>No</td>
-                                <td>Nama</td>
-                                <td>Harga</td>
-                                <td>Total</td>
-                        </tbody>
-                    </table>
-                    <div align="right">
-                        <a href=""><div class="btn btn-info">Bayar</div></a>
-                    </div>
-            </div>
-            <!-- /.box-body -->
+    <div class="container">
+        <div class="box-header">
+            <h3 class="box-title">Pembayaran</h3>
         </div>
+        <?php
+        $subtotal = 0;
+        $keranjang = session()->get('tambah_keranjang');
+
+        foreach (session('tambah_keranjang') as $cart):
+        $barang = DB::table('tbl_barang')
+        ->where('id_brg', $cart['id_brg'])
+        ->first();
+
+        $subtotal += $barang->harga * $cart['jumlah'];
+        endforeach;
+        echo '<h4>Total Belanja Anda: Rp. ' . number_format($subtotal, 0, ',', '.');
+            ?>
+            <div class="card-body">
+                <h6>Nama</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control">
+
+                </div>
+
+                <h6>Alamat Lengkap</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" name="alamat" placeholder="Alamat Lengkap" class="form-control">
+                </div>
+
+                <h6>Kode Pos</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="number" name="alamat" placeholder="Kode Pos" class="form-control">
+                </div>
+
+                <h6>No Telpon</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" name="no_telpon" placeholder="No Telpon" class="form-control">
+                </div>
+
+                <div align="right">
+                    <a href="/keranjang">
+                        <div class="btn btn-danger">Kembali</div>
+                    </a>
+                    <button class="btn btn-primary" onclick="sweetAlert()">Bayar</button>
+                </div>
+            </div>
     </div>
 @endsection

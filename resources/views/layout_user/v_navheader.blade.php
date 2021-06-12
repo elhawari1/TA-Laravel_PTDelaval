@@ -1,5 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
+        <?php $keranjang = session('tambah_keranjang');
+            $k=0; $sum = 0;
+        if($keranjang == null ):
+            $k=0;
+        else: $k += count($keranjang);
+            foreach ($keranjang as $count):
+             $sum += $count['jumlah'];
+            endforeach;
+        endif; ?>
 		<a class="navbar-brand" href="/pt_delaval">
 			PT. AGRI SERVIS SAKTI
 		</a>
@@ -17,7 +26,7 @@
 						<a class="dropdown-item" href="/kontak">Kontak Kami</a>
 					</div>
 				</li>
-				<li class="nav-item cta cta-colored"><a href="/keranjang" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+				<li class="nav-item cta cta-colored"><a href="/keranjang" class="nav-link"><span class="icon-shopping_cart"></span>{{ $sum }}</a></li>
 				@if (Auth::user() != null)
                 <li class="nav-item active"><a href="/logout" class="nav-link">Selamat Datang {{ Auth::user()->name }}, Logout</a></li>
                 @else

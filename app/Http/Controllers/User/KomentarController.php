@@ -12,17 +12,15 @@ class KomentarController extends Controller
         $this->KomentarModel = new KomentarModel();
     }
 
-
     //tambah data komentar
-    // public function add()
-    // {
-    //     return view('user.v_kontak');
-    // }
+    public function add()
+    {
+        return view('user.v_kontak');
+    }
 
     //validasi dan add komentar
     public function insert()
     {
-
         Request()->validate([
             'nama' => 'required',
             'email' => 'required',

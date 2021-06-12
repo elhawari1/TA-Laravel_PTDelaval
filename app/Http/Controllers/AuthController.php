@@ -17,7 +17,8 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->back();
+            return redirect()->back()->with('pesan', 'Login Salah !!');
+
         } else {
             if (Auth::attempt(['role' => 2, 'password' => $request->password])) {
                 return redirect('pt_delaval');
@@ -42,8 +43,6 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed', //field_confirmation
 
         ]);
-
-
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -51,11 +50,12 @@ class AuthController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
-            return redirect()->route('login')->with('pesan', 'Register Berhasil !!');
+            return redirect()->route('login');
     }
     public function logout()
     {
         Auth::logout();
+        session()->flush();
         return redirect()->route('login');
     }
 }

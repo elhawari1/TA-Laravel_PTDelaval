@@ -18,9 +18,9 @@
 
 <body class="hold-transition login-page">
   @if (session('pesan'))
-  <div class="alert alert-success alert-dismissible">
+  <div class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h4><i class="icon fa fa-check"></i> Success!</h4>
+    <h4><i class="icon fa fa-check"></i> Salah!</h4>
     {{ session('pesan') }}.
   </div>
   @endif
@@ -59,7 +59,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <br>Belum punya akun?<a href="/register" class="text-center"> Daftar sekarang!</a>
       </div>

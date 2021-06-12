@@ -7,7 +7,8 @@
     <title>Admin | @yield('title')</title>
 
     {{-- untuk file input barang --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.5/css/fileinput.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.5/css/fileinput.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.2/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
     <!-- Google Font: Source Sans Pro -->
@@ -28,14 +29,13 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template_admin') }}/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet"
-        href="{{ asset('template_admin') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.css">
 
-     @yield('css')
+    @yield('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -43,8 +43,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('template_admin') }}/dist/img/delaval.png"
-                alt="delaval" height="60" width="60">
+            <img class="animation__shake" src="{{ asset('template_admin') }}/dist/img/delaval.png" alt="delaval"
+                height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -52,14 +52,30 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="{{ asset('template_admin') }}/#"
-                        role="button"><i class="icon fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="{{ asset('template_admin') }}/#" role="button"><i
+                            class="icon fas fa-bars"></i></a>
                 </li>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
+                <li class="nav-link d-none d-sm-inline-block" id="tanggalwaktu" style="color: nigga"></li>
+                <script>
+                    var tw = new Date();
+                    if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
+                    else(a = tw.getTime());
+                    tw.setTime(a);
+                    var tahun = tw.getFullYear();
+                    var hari = tw.getDay();
+                    var bulan = tw.getMonth();
+                    var tanggal = tw.getDate();
+                    var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
+                    var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+                        "Agustus", "September", "Oktober", "Nopember", "Desember");
+                    document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " +
+                        bulanarray[bulan] + " " + tahun;
+                </script>
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         {{ Auth::user()->name }}
@@ -67,6 +83,7 @@
                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                         <a href="/logout" class="dropdown-item dropdown-footer">Logout</a>
                     </div>
+
                 </li>
 
             </ul>
@@ -100,6 +117,7 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
+
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('template_admin') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -116,8 +134,7 @@
     <script src="{{ asset('template_admin') }}/plugins/moment/moment.min.js"></script>
     <script src="{{ asset('template_admin') }}/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script
-        src="{{ asset('template_admin') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
+    <script src="{{ asset('template_admin') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
     </script>
     <!-- Summernote -->
     <script src="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
@@ -141,7 +158,6 @@
             uploadUrl: "/file-upload-batch/2"
         });
     </script>
-
-    @yield('js')
 </body>
+
 </html>
