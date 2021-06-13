@@ -18,16 +18,16 @@
             ?>
             <div class="card-body">
 
-                <div class="form-group">
+            <div class="form-group">
                     <h4>Gambar</h4>
                     <input id="input-fa" type="file" name="gambar" class="form-control file" data-browse-on-zone-click="true">
                 </div>
 
                 <div align="right">
                     <a href="/keranjang">
-                        <div class="btn btn-danger">Kembali</div>
+                        <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
                     </a>
-                    <button class="btn btn-primary" onclick="sweetAlert()">Bayar</button>
+                    <button class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">Bayar</button>
                 </div>
             </div>
     </div>

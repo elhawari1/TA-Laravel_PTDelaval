@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="{{ asset('template_user') }}/css/icomoon.css">
     <link rel="stylesheet" href="{{ asset('template_user') }}/css/style.css">
 
+    <link rel="stylesheet" href="{{ asset('template_admin') }}/dist/css/adminlte.min.css">
+
 </head>
 
 <body class="goto-here">

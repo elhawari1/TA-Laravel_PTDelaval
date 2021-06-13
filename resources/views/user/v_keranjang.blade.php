@@ -53,17 +53,17 @@
                 </tbody>
             </table>
             <div align="right">
-                <a href="/hapuskeranjang" class="btn-lg btn-danger">Hapus Belanja</a>
+                <a href="/hapuskeranjang" class="btn btn-sm btn-danger" style="width: 150px; border-radius: 50px">Hapus Belanja</a>
 
-                <a href="/produk" class="btn-lg btn-primary">Lanjutkan Belanja</a>
+                <a href="/produk" class="btn btn-sm btn-primary" style="width: 175px; border-radius: 50px">Lanjutkan Belanja</a>
 
-                <a href="/pembayaran" class="btn-lg btn-success">Pembayaran</a>
+                <a href="/pembayaran" class="btn btn-sm btn-success" style="width: 150px; border-radius: 50px">Pembayaran</a>
             </div>
 
             @else
             <div align="center">
                 <h4>Keranjang belanja anda kosong</h1>
-                    <a href="/produk" class="btn-sm btn-success">Cari Barang Belanja</a>
+                    <a href="/produk" class="btn-sm btn-success" style="width: 100px; border-radius: 50px">Cari Barang Belanja</a>
             </div>
             @endif
         </div>

@@ -5523,7 +5523,7 @@ input[type=submit].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #fff
+  color: #000000
 }
 
 .navbar-dark .navbar-brand:focus,
@@ -7819,7 +7819,7 @@ button.bg-light:hover {
 }
 
 .bg-dark {
-  background-color: #1a75ff !important
+  background-color: #ffffff !important
 }
 
 a.bg-dark:focus,
@@ -14892,7 +14892,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 [class*=sidebar-light-] .nav-sidebar>.nav-item>.nav-link:active,
 [class*=sidebar-light-] .nav-sidebar>.nav-item>.nav-link:focus {
-  color: #1a75ff
+  color: rgb(0, 0, 0)
 }
 
 [class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link,
@@ -15029,7 +15029,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus,
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
   background-color: rgba(255, 255, 255, .9);
-  color: #1a75ff
+  color: #000000
 }
 
 [class*=sidebar-dark-] .nav-flat .nav-item .nav-treeview .nav-treeview {
@@ -15120,13 +15120,13 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .sidebar-dark-dark .nav-sidebar>.nav-item>.nav-link.active,
 .sidebar-light-dark .nav-sidebar>.nav-item>.nav-link.active {
-  background-color: #1a75ff;
+  background-color: #000000;
   color: #fff
 }
 
 .sidebar-dark-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
 .sidebar-light-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
-  border-color: #1a75ff
+  border-color: #000000
 }
 
 .sidebar-dark-lightblue .nav-sidebar>.nav-item>.nav-link.active,
@@ -15329,13 +15329,13 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .sidebar-dark-gray-dark .nav-sidebar>.nav-item>.nav-link.active,
 .sidebar-light-gray-dark .nav-sidebar>.nav-item>.nav-link.active {
-  background-color: #1a75ff;
+  background-color: #000000;
   color: #fff
 }
 
 .sidebar-dark-gray-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
 .sidebar-light-gray-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
-  border-color: #1a75ff
+  border-color: #000000
 }
 
 .sidebar-mini .main-sidebar.sidebar-focused .nav-compact.nav-sidebar.nav-child-indent:not(.nav-flat) .nav-treeview,
@@ -16001,13 +16001,13 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .dark-mode .sidebar-dark-dark .nav-sidebar>.nav-item>.nav-link.active,
 .dark-mode .sidebar-light-dark .nav-sidebar>.nav-item>.nav-link.active {
-  background-color: #1a75ff;
+  background-color: #000000;
   color: #fff
 }
 
 .dark-mode .sidebar-dark-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
 .dark-mode .sidebar-light-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
-  border-color: #1a75ff
+  border-color: #000000
 }
 
 .dark-mode .sidebar-dark-lightblue .nav-sidebar>.nav-item>.nav-link.active,
@@ -16216,7 +16216,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .dark-mode .sidebar-dark-gray-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
 .dark-mode .sidebar-light-gray-dark .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
-  border-color: #1a75ff
+  border-color: #000000
 }
 
 .dark-mode [class*=sidebar-light-] .sidebar a {
@@ -20743,7 +20743,7 @@ body.text-sm .control-sidebar {
 
 .dark-mode .nav-tabs .nav-item.show .nav-link,
 .dark-mode .nav-tabs .nav-link.active {
-  background-color: #1a75ff;
+  background-color: #000000;
   border-color: #56606a #56606a transparent #56606a;
   color: #fff
 }
@@ -33559,7 +33559,7 @@ html.maximized-card {
 
 .dark-mode .modal-content.bg-warning .close,
 .dark-mode .modal-content.bg-warning .mailbox-attachment-close {
-  color: #1a75ff !important;
+  color: #000000 !important;
   text-shadow: 0 1px 0 #495057 !important
 }
 
@@ -48532,7 +48532,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-dark {
-  background-color: #1a75ff !important
+  background-color: #ffffff !important
 }
 
 .bg-dark,
@@ -48969,7 +48969,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-gray-dark {
-  background-color: #1a75ff !important
+  background-color: #ffffff !important
 }
 
 .bg-gray-dark,
@@ -51970,7 +51970,7 @@ a.text-muted:hover {
 }
 
 .dark-mode .bg-dark {
-  background-color: #1a75ff !important
+  background-color: #ffffff !important
 }
 
 .dark-mode .bg-dark,
@@ -52407,7 +52407,7 @@ a.text-muted:hover {
 }
 
 .dark-mode .bg-gray-dark {
-  background-color: #1a75ff !important
+  background-color: #ffffff !important
 }
 
 .dark-mode .bg-gray-dark,

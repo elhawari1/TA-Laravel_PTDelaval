@@ -61,7 +61,7 @@
                <li><span class="text">
                    <h2 class="ftco-heading-2">Ingin Membuat Kandang?</h2>
                  </span></li>
-               <a href="https://api.whatsapp.com/send?phone=6281326191370&text=Saya%20ingin%20konsultasi." class="btn btn-primary" target="_blank">Klik disini</a>
+               <a href="https://api.whatsapp.com/send?phone=6281326191370&text=Saya%20ingin%20konsultasi." class="btn btn-primary" target="_blank" style="width: 100px; border-radius: 50px">Klik disini</a>
              </ul>
            </div>
          </div>

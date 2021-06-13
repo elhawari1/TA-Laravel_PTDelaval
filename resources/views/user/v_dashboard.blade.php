@@ -36,7 +36,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div><br>
+  </div>
   <section class="ftco-section">
     <div class="ml-5">
       <div class="row text-center mt-4">
@@ -51,10 +51,10 @@
         <div class="card-footer bg-transparent">
           <div class="row">
             <div class="col">
-              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px" onclick="sweetAlert1()">Beli</a>
+              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert1()">Beli</a>
             </div>
             <div class="col">
-              <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px">Detail</a>
+              <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px; border-radius: 50px">Detail</a>
             </div>
           </div>
         </div>

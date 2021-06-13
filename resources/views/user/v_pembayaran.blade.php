@@ -55,10 +55,10 @@
 
                 <div align="right">
                     <a href="/keranjang">
-                        <div class="btn btn-danger">Kembali</div>
+                        <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
                     </a>
                     <a href="/bayar">
-                        <div class="btn btn-primary" onclick="sweetAlert()">Bayar</div>
+                        <div class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">Bayar</div>
                     </a>
                 </div>
             </div>
