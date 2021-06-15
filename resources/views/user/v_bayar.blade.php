@@ -17,10 +17,10 @@
         echo '<h4>Total Pembayaran Belanja Anda: Rp. ' . number_format($subtotal, 0, ',', '.');
             ?>
             <div class="card-body">
-
+                <input type="hidden" name="id_pesanan" value="{{ $id_pesanan }}">
             <div class="form-group">
                     <h4>Gambar</h4>
-                    <input id="input-fa" type="file" name="gambar" class="form-control file" data-browse-on-zone-click="true">
+                    <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true">
                 </div>
 
                 <div align="right">

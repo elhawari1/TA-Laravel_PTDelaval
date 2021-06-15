@@ -20,11 +20,14 @@
         echo '<h4>Total Belanja Anda: Rp. ' . number_format($subtotal, 0, ',', '.');
             ?>
             <div class="card-body">
+                <form action="/bayar/ins" method="post">
+                    @csrf
                 <h6>Nama</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
+                    <input type="number" name="total" id="total" value="{{ $subtotal }}" hidden>
                     <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control">
 
                 </div>
@@ -42,7 +45,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="number" name="alamat" placeholder="Kode Pos" class="form-control">
+                    <input type="number" name="kode_pos" placeholder="Kode Pos" class="form-control">
                 </div>
 
                 <h6>No Telpon</h6>
@@ -50,17 +53,18 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="text" name="no_telpon" placeholder="No Telpon" class="form-control">
+                    <input type="number" name="no_telpon" placeholder="No Telpon" class="form-control" maxlength="12x">
                 </div>
 
                 <div align="right">
                     <a href="/keranjang">
                         <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
                     </a>
-                    <a href="/bayar">
-                        <div class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">Bayar</div>
-                    </a>
+                    <button type="submit" class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">
+                       Bayar
+                    </button>
                 </div>
+                </form>
             </div>
     </div>
 @endsection

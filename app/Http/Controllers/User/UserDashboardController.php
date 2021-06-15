@@ -4,7 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\User\PembelianModel;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class UserDashboardController extends Controller
@@ -12,6 +15,7 @@ class UserDashboardController extends Controller
     public function __construct()
     {
         $this->BarangModel = new BarangModel();
+        $this->PembelianModel = new PembelianModel();
     }
 
     public function index()
@@ -69,17 +73,11 @@ class UserDashboardController extends Controller
         $barang = DB::table('tbl_barang')
             ->where('id_brg', $id_brg)
             ->first();
-            // if (session('tambah_keranjang') != null) {
-            //     $id_brg = count(session('tambah_keranjang')) + 1;
-            // }else{
             session()->push('tambah_keranjang', [
                 'id_brg' => $id_brg,
                 'jumlah' => 1,
                 'harga' => $barang->harga,
             ]);
-        //     }
-
-        // $id_brg++;
         return Redirect('keranjang');
     }
 
@@ -107,7 +105,6 @@ class UserDashboardController extends Controller
                 }
             }
         }
-
         error_reporting();
         return redirect()->back();
     }
@@ -135,9 +132,42 @@ class UserDashboardController extends Controller
         return view('user.v_pembayaran');
     }
 
-    //halaman bayar
-    public function bayar()
+    public function insBayar()
     {
-        return view('user.v_bayar');
+
+        $daynow = date('Y-m-d');
+        $pesanan = [
+            'id' => Auth::user()->id,
+            'alamat' => Request()->alamat,
+            'no_hp' => Request()->no_telpon,
+            'kode_pos' => Request()->kode_pos,
+            'total' => Request()->total,
+            'tgl_pesan' => $daynow,
+            'batas_bayar' => date('Y-m-d', strtotime('+1 day', strtotime($daynow))),
+            'status' => 0,
+        ];
+        $this->PembelianModel->addData($pesanan);
+
+        $bayar = $this->PembelianModel->lastIns();
+        return redirect()->route('bayar',[$bayar->id_pesanan]);
+    }
+    //halaman bayar
+    public function bayar($id)
+    {
+        $id_pesanan = $id;
+        // return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Tambahkan !!');
+        return redirect()->route('barang', compact('id_pesanan'));
+    }
+
+    public function insBukti()
+    {
+        $file = Request()->bukti_tf;
+        $fileName = date('d/m/Y H:i'). '.' . $file->extension();
+        $file->move(public_path('foto/struk_pembayaran'), $fileName);
+
+        $data = array('bukti_tf' => $fileName, );
+        $w = array('id_pesanan' => Request()->id_pesanan, );
+        $this->PembelianModel->editData($w, $data);
+        return redirect()->route('pt_delaval');
     }
 }

@@ -54,8 +54,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/komentar/delete/{id}', [DashboardController::class, 'delete']);
 });
 
-
-
 //Halaman User
 Route::get('/pt_delaval', [UserDashboardController::class, 'index']);
 // user detail barang
@@ -68,13 +66,9 @@ Route::get('/about', [UserDashboardController::class, 'about']);
 Route::get('/kontak', [UserDashboardController::class, 'kontak'])->name('kontak');
 
 Route::group(['middleware' => 'auth'], function () {
-    // user tambah komentar Kami
-    Route::post('/kontak/insert', [KomentarController::class, 'insert']);
-});
+// user tambah komentar Kami
+Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 // user keranjang Kami
-Route::group(
-    ['middleware' => 'auth'],
-    function () {
 Route::get('/keranjang', [UserDashboardController::class, 'keranjang'])->name('keranjang');
 // user tambah keranjang Kami
 Route::get('/keranjang/tambah/{id}', [UserDashboardController::class, 'tambah_keranjang']);
@@ -87,6 +81,8 @@ Route::get('/kurang/{id}', [UserDashboardController::class, 'kurang']);
 // user pembayaran
 Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran']);
 // user bayar
-Route::get('/bayar', [UserDashboardController::class, 'bayar']);
+Route::post('/bayar/ins', [UserDashboardController::class, 'insBayar']);
+
+Route::get('/bayar/{id}', [UserDashboardController::class, 'bayar'])->name('bayar');
     }
 );
