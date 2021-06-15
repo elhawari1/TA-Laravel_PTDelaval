@@ -14,12 +14,17 @@
 
         $subtotal += $barang->harga * $cart['jumlah'];
         endforeach;
-        echo '<h4>Total Pembayaran Belanja Anda: Rp. ' . number_format($subtotal, 0, ',', '.');
+        echo '<p><h5>Untuk melakukan pembayaran silahkan ikuti instruksi di bawah ini :</p>
+        <ol>
+        <li>Anda dapat mengirim barang pembelian anda seharga Rp. '. number_format($subtotal, 0, ',', '.'); 
+        echo ' ke rekening XXX (BANK XXX) A.N XXX.</li>
+        <li>Setelah melakukan pembayaran silahkan unggah bukti pembayaran anda pada kolom di bawah ini.</li>
+        <li>Harap menyelesaikan pembayaran sebelum tanggal xxx.'
             ?>
             <div class="card-body">
 
             <div class="form-group">
-                    <h4>Gambar</h4>
+                    <h4>Unggah bukti pembayaran</h4>
                     <input id="input-fa" type="file" name="gambar" class="form-control file" data-browse-on-zone-click="true">
                 </div>
 

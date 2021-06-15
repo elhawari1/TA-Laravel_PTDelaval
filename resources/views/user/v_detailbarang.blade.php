@@ -36,7 +36,8 @@
                                 </strong></td>
                         </tr>
                     </table>
-                    <a href="" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px">Tambah Keranjang</a>
+
+                    <a href="" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px" onclick="sweetAlert1()">Tambah Keranjang</a>
                     <a href="/pt_delaval" class="btn btn-danger pull-left" style="width: 100px; border-radius: 50px">Kembali</a><br>
                 </div>
             </div>

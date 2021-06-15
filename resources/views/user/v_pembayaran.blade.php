@@ -23,7 +23,7 @@
                 <h6>Nama</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><span class="fa fa-user"></span></span>
                     </div>
                     <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control">
 
@@ -32,7 +32,7 @@
                 <h6>Alamat Lengkap</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><span class="fa fa-location-arrow"></span></span>
                     </div>
                     <input type="text" name="alamat" placeholder="Alamat Lengkap" class="form-control">
                 </div>
@@ -40,7 +40,7 @@
                 <h6>Kode Pos</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><span class="fa fa-map-marker"></span></span>
                     </div>
                     <input type="number" name="alamat" placeholder="Kode Pos" class="form-control">
                 </div>
@@ -48,7 +48,7 @@
                 <h6>No Telpon</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><span class="fa fa-phone"></span></span>
                     </div>
                     <input type="text" name="no_telpon" placeholder="No Telpon" class="form-control">
                 </div>

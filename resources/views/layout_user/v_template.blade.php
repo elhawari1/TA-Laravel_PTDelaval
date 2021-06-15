@@ -46,6 +46,8 @@
 
     <link rel="stylesheet" href="{{ asset('template_admin') }}/dist/css/adminlte.min.css">
 
+    <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/fontawesome-free/css/all.min.css">
+
 </head>
 
 <body class="goto-here">
