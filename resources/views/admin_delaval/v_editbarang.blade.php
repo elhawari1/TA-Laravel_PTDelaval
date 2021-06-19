@@ -30,7 +30,7 @@
                 <h4>Nama</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><i class="nav-icon fa fa-shopping-bag"></i></span>
                     </div>
                     <input type="text" name="nama" placeholder="Nama Barang" class="form-control"
                         value="{{ $barang->nama }}">
@@ -63,7 +63,7 @@
                 <h4>Deskripsi</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><i class="nav-icon fa fa-file-alt"></i></span>
                     </div>
                     <input type="text" name="deskripsi" class="form-control" value="{{ $barang->deskripsi }}">
                     <div class="text-danger">
@@ -77,9 +77,9 @@
                 <h4>Harga</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><i class="nav-icon fa fa-money-bill"></i></span>
                     </div>
-                    <input type="text" id="rupiah" name="harga" class="form-control" value="{{ $barang->harga }}">
+                    <input type="text" name="harga" class="form-control" value="{{ $barang->harga }}">
                     <div class="text-danger">
                         @error('harga')
                         {{ $message }}
@@ -90,7 +90,7 @@
                 <h4>Stok</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><i class="nav-icon fa fa-chart-line"></i></span>
                     </div>
                     <input type="number" name="stok" class="form-control" value="{{ $barang->stok }}">
                     <div class="text-danger">
@@ -103,7 +103,7 @@
                 <h4>Tanggal</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+                        <span class="input-group-text"><i class="nav-icon fa fa-calendar-alt"></i></span>
                     </div>
                     <input type="date" name="tanggal" class="form-control" value="{{ $barang->tanggal }}" readonly>
                     <div class="text-danger">
@@ -113,9 +113,8 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
+                    <a href="/barang" class="btn btn-danger btn-sm">Kembali</a>
                     <button class="btn btn-primary btn-sm"> Simpan</button>
                 </div>
             </div>
@@ -124,31 +123,4 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<script type="text/javascript">
-		
-		var rupiah = document.getElementById('rupiah');
-		rupiah.addEventListener('keyup', function(e){
-			// tambahkan 'Rp.' pada saat form di ketik
-			// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-			rupiah.value = formatRupiah(this.value, 'Rp. ');
-		});
- 
-		/* Fungsi formatRupiah */
-		function formatRupiah(angka, prefix){
-			var number_string = angka.replace(/[^,\d]/g, '').toString(),
-			split   		= number_string.split(','),
-			sisa     		= split[0].length % 3,
-			rupiah     		= split[0].substr(0, sisa),
-			ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
- 
-			// tambahkan titik jika yang di input sudah menjadi angka ribuan
-			if(ribuan){
-				separator = sisa ? '.' : '';
-				rupiah += separator + ribuan.join('.');
-			}
- 
-			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-		}
-	</script>
 @endsection

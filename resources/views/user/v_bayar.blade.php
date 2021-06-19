@@ -3,33 +3,37 @@
 @section('content')
 
 <div class="container">
-        <?php
-        $subtotal = 0;
+    <?php
         $keranjang = session()->get('tambah_keranjang');
-
-        foreach (session('tambah_keranjang') as $cart):
-        $barang = DB::table('tbl_barang')
-        ->where('id_brg', $cart['id_brg'])
+        $barang = DB::table('tbl_pesanan')
+        ->where('id_pesanan', $id_pesanan)
         ->first();
 
-        $subtotal += $barang->harga * $cart['jumlah'];
-        endforeach;
-        echo '<h4>Total Pembayaran Belanja Anda: Rp. ' . number_format($subtotal, 0, ',', '.');
-            ?>
-            <div class="card-body">
-                <input type="hidden" name="id_pesanan" value="{{ $id_pesanan }}">
-            <div class="form-group">
-                    <h4>Gambar</h4>
-                    <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true">
-                </div>
+        $subtotal = $barang->total;
+        echo '<p><h5>Untuk melakukan pembayaran silahkan ikuti instruksi di bawah ini :</p>
+        <ol>
+        <li>Anda dapat mengirim barang pembelian anda seharga Rp. '. number_format($subtotal, 0, ',', '.');
+        echo ' ke rekening XXX (BANK XXX) A.N XXX.</li>
+        <li>Setelah melakukan pembayaran silahkan unggah bukti pembayaran anda pada kolom di bawah ini.</li>
+        <li>Harap menyelesaikan pembayaran sebelum tanggal xxx.'
+    ?>
+    <div class="card-body">
+        <form action="/bayar/insert" method="post" enctype="multipart/form-data">
+            @csrf
+        <input type="hidden" name="id_pesanan" value="{{ $id_pesanan }}">
+        <div class="form-group">
+            <h4>Unggah bukti pembayaran</h4>
+            <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true">
+        </div>
 
-                <div align="right">
-                    <a href="/keranjang">
-                        <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
-                    </a>
-                    <button class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">Bayar</button>
-                </div>
-            </div>
+        <div align="right">
+            <a href="/keranjang">
+                <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
+            </a>
+            <button type="submit" class="btn btn-primary" style="width: 100px; border-radius: 50px"
+                onclick="sweetAlert()">Bayar</button>
+        </div>
+        </form>
     </div>
-
+</div>
 @endsection

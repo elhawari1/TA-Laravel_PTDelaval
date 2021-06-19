@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\BarangController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PembelianController;
+use App\Http\Controllers\Admin\PesananController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\KomentarController;
 use App\Http\Controllers\User\UserDashboardController;
@@ -42,12 +42,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/barang/update/{id_brg}', [BarangController::class, 'update']);
     // admin hapus barang
     Route::get('/barang/delete/{id_brg}', [BarangController::class, 'delete']);
-    // admin print data barang
-    Route::get('/barang/print', [BarangController::class, 'print']);
-    // admin printpdf data barang
-    Route::get('/barang/printpdf', [BarangController::class, 'printpdf']);
-    // admin pembelian
-    Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
+    // // admin print data barang
+    // Route::get('/barang/print', [BarangController::class, 'print']);
+    // // admin printpdf data barang
+    // Route::get('/barang/printpdf', [BarangController::class, 'printpdf']);
+    // admin pesanan
+    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+    Route::get('/pesanan/terima/{id}', [PesananController::class, 'terima'])->name('terima');
+    Route::get('/pesanan/tolak/{id}', [PesananController::class, 'tolak'])->name('tolak');
+    // admin detailpesanan
+    Route::get('/pesanan/detail/{id_pesanan}', [PesananController::class, 'detail']);
     // admin tampil data komentar user
     Route::get('/komentar', [DashboardController::class, 'indexkomentar'])->name('komentar');
     // admin hapus komentar
@@ -55,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Halaman User
-Route::get('/pt_delaval', [UserDashboardController::class, 'index']);
+Route::get('/pt_delaval', [UserDashboardController::class, 'index'])->name('pt_delaval');
 // user detail barang
 Route::get('/detail/barang/{id_brg}', [UserDashboardController::class, 'detail']);
 // user produk Kami
@@ -69,6 +73,10 @@ Route::group(['middleware' => 'auth'], function () {
 // user tambah komentar Kami
 Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 // user keranjang Kami
+Route::get('/riwayat', [UserDashboardController::class, 'riwayat'])->name('riwayat');
+// admin detailriwayat
+Route::get('/riwayat/detail/{id_pesanan}', [UserDashboardController::class, 'detail_riwayat']);
+// user keranjang Kami
 Route::get('/keranjang', [UserDashboardController::class, 'keranjang'])->name('keranjang');
 // user tambah keranjang Kami
 Route::get('/keranjang/tambah/{id}', [UserDashboardController::class, 'tambah_keranjang']);
@@ -79,10 +87,12 @@ Route::get('/tambah/{id}', [UserDashboardController::class, 'tambah']);
 // user kurang satuan pada tombol minus keranjang
 Route::get('/kurang/{id}', [UserDashboardController::class, 'kurang']);
 // user pembayaran
-Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran']);
-// user bayar
-Route::post('/bayar/ins', [UserDashboardController::class, 'insBayar']);
-
+Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran'])->name('pembayaran');
+// user insert pembayaran
+Route::post('/pembayaran/insert', [UserDashboardController::class, 'insertPemb']);
+//user bayar
 Route::get('/bayar/{id}', [UserDashboardController::class, 'bayar'])->name('bayar');
+//user bayar
+Route::post('/bayar/insert', [UserDashboardController::class, 'insBukti']);
     }
 );

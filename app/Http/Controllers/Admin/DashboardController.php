@@ -27,7 +27,7 @@ class DashboardController extends Controller
                 'barang' => $this->BarangModel->allData(),
                 'komentar' => $this->BarangModel->allDataKomentar(),
             ];
-            
+
             return view('admin_delaval.v_dashboard',$data);
         }
     }
@@ -41,11 +41,11 @@ class DashboardController extends Controller
             return view('user.v_dashboard', $data);
         } else {
         $data = [
-            'barang' => $this->BarangModel->allData(),
+            // 'barang' => $this->BarangModel->allData(),
             'komentar' => $this->BarangModel->allDataKomentar(),
         ];
         return view('admin_delaval.v_komentaruser', $data);
-    }
+        }
     }
 
     public function delete($id)

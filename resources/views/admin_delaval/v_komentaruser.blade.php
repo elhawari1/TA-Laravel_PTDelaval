@@ -41,7 +41,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                       <?php $no = 1; ?>
+                    <?php $no = 1; ?>
                     @foreach ($komentar as $data)
                   <tr>
                     <td>{{ $no++ }}</td>

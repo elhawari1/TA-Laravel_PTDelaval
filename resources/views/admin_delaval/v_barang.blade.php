@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+{{-- Modal Image --}}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 @endsection
 
 @section('content')
@@ -57,8 +61,7 @@
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Tanggal</th>
-                            <th>Action</th>
-                            <th colspan="2"></th>
+                            <th style="width:10%;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,9 +70,9 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->nama }}</td>
-                            <td><img src="{{ url('foto/barang/' . $data->gambar) }}" width="100px" height="100px"></td>
+                            <td><img src="{{ url('foto/barang/' . $data->gambar) }}" width="100px;cursor:pointer" height="100px" onclick="onClick(this)"></td>
                             <td>{{ $data->deskripsi }}</td>
-                            <td>{{ $data->harga }}</td>
+                            <td>Rp.{{ number_format($data->harga, 0, ',', '.') }}</td>
                             <td>{{ $data->stok }}</td>
                             <td>{{ $data->tanggal }}</td>
                             <td colspan="2">
@@ -112,6 +115,13 @@
     <!-- /.modal-dialog -->
 </div>
 @endforeach
+
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+        <img id="img01" style="width:100%">
+    </div>
+</div>
 @endsection
 
 @section('js')
@@ -147,4 +157,12 @@
   });
 </script>
 
+{{-- Modal Image --}}
+<script>
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+    }
+
+</script>
 @endsection

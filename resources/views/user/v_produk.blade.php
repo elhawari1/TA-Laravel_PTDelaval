@@ -22,7 +22,7 @@
         <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
         <div class="card-body">
           <h5 class="card-title">{{ $data->nama }}</h5>
-          <span class="badge badge-success mb-3">Rp. {{ number_format($data->harga, 0, ',','.') }}</span>
+          <span class="badge badge-success mb-3">Rp.{{ number_format($data->harga, 0, ',', '.') }}</span>
           <p class="card-text">{{ $data->deskripsi }}</p>
         </div>
         <div class="card-footer bg-transparent">

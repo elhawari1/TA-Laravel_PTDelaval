@@ -40,9 +40,9 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{ route('pembelian') }}" class="nav-link {{ Route::currentRouteName() === 'pembelian' ? 'active' : '' }}">
+                     <a href="{{ route('pesanan') }}" class="nav-link {{ Route::currentRouteName() === 'pesanan' ? 'active' : '' }}">
                          <font style="color: white;"><i class="nav-icon fa fa-money-bill"></i>
-                             <p>Pembelian</p>
+                             <p>Pesanan</p>
                          </font>
                      </a>
                  </li>

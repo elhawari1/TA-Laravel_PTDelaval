@@ -35,7 +35,7 @@
         <form action="{{ route('register') }}" method="post">
           {{ csrf_field() }}
           <div class="input-group mb-3">
-            <input type="text" name="name" class="form-control" placeholder="Your name" value="{{ old('name') }}" required>
+            <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ old('name') }}" required>
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

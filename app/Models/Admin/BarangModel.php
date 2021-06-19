@@ -7,14 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class BarangModel extends Model
 {
+    //data barang
     public function allData()
     {
         return DB::table('tbl_barang')->get();
-    }
-
-    public function allDataKomentar()
-    {
-        return DB::table('komentar')->get();
     }
 
     public function jumalh()
@@ -41,4 +37,21 @@ class BarangModel extends Model
     {
         DB::table('tbl_barang')->where('id_brg', $id_brg)->delete();
     }
+
+    //data komentar
+    public function allDataKomentar()
+    {
+        return DB::table('komentar')->get();
+    }
+
+    //data pembelian
+    public function allDataPesanan()
+    {
+        return DB::table('tbl_pesanan')->get();
+    }
+
+    // public function detailData($id_brg)
+    // {
+    //     return DB::table('tbl_barang')->where('id_brg', $id_brg)->first();
+    // }
 }

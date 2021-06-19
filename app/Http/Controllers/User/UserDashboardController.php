@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\User\PembelianModel;
+use App\Models\User\PesananModel;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,7 +15,7 @@ class UserDashboardController extends Controller
     public function __construct()
     {
         $this->BarangModel = new BarangModel();
-        $this->PembelianModel = new PembelianModel();
+        $this->PesananModel = new PesananModel();
     }
 
     public function index()
@@ -28,7 +28,6 @@ class UserDashboardController extends Controller
     //link about
     public function produk()
     {
-
         $data = [
             'barang' => $this->BarangModel->allData(),
         ];
@@ -60,10 +59,30 @@ class UserDashboardController extends Controller
         return view('user.v_detailbarang', $data);
     }
 
-    //halaman keranjang
+    //llnk riwayat
+    public function riwayat()
+    {
+        $data = [
+            // 'barang' => $this->BarangModel->allData(),
+            'pesanan' => $this->PesananModel->allData(),
+        ];
+        return view('user.v_riwayat', $data);
+    }
+    //link detail riwayat
+    public function detail_riwayat($id_pesanan)
+    {
+        if (!$this->PesananModel->detailData($id_pesanan)) {
+            abort(404);
+        }
+        $data = [
+            'pesanan' => $this->PesananModel->detailData($id_pesanan),
+        ];
+        return view('user.v_detailriwayat', $data);
+    }
+
+    //link keranjang
     public function keranjang()
     {
-
         return view('user.v_keranjang');
     }
 
@@ -73,12 +92,41 @@ class UserDashboardController extends Controller
         $barang = DB::table('tbl_barang')
             ->where('id_brg', $id_brg)
             ->first();
+        $data = session('tambah_keranjang');
+        // dd($data);
+        $jml = count((array)$data);
+        $id_br_kr = 0;
+
+        if ($data == null) {
             session()->push('tambah_keranjang', [
                 'id_brg' => $id_brg,
                 'jumlah' => 1,
                 'harga' => $barang->harga,
             ]);
-        return Redirect('keranjang');
+        } else {
+            echo $jml;
+            // dd($data);
+            for ($idplus = 0; $idplus < $jml; $idplus++) {
+                echo 'ada <br>';
+                if ($data[$idplus]['id_brg'] == $id_brg) {
+                    $id_br_kr = 0;
+                    echo $data[$idplus]['id_brg'];
+                    $data[$idplus]['jumlah'] += 1;
+                    session(['tambah_keranjang' => $data]);
+                    break;
+                } else {
+                    $id_br_kr = 1;
+                }
+            }
+            if ($id_br_kr == 1) {
+                session()->push('tambah_keranjang', [
+                    'id_brg' => $id_brg,
+                    'jumlah' => 1,
+                    'harga' => $barang->harga,
+                ]);
+            }
+        }
+        return Redirect()->back();
     }
 
     //fungs hapus session keranjang keranjang
@@ -93,8 +141,8 @@ class UserDashboardController extends Controller
     {
         $keranjang = session('tambah_keranjang');
         if ($keranjang == null) {
-           $this->tambah_keranjang($id_brg);
-        }else{
+            $this->tambah_keranjang($id_brg);
+        } else {
             $jml = count($keranjang);
 
             for ($idplus = 0; $idplus < $jml; $idplus++) {
@@ -105,11 +153,12 @@ class UserDashboardController extends Controller
                 }
             }
         }
+
         error_reporting();
         return redirect()->back();
     }
 
-    //fungs kurang barang keranjang tombol plus
+    //fungs kurang barang keranjang tombol minus
     public function kurang($id_brg)
     {
         $keranjang = session('tambah_keranjang');
@@ -132,11 +181,11 @@ class UserDashboardController extends Controller
         return view('user.v_pembayaran');
     }
 
-    public function insBayar()
+    //halaman insert pembayaran
+    public function insertPemb()
     {
-
         $daynow = date('Y-m-d');
-        $pesanan = [
+        $data = [
             'id' => Auth::user()->id,
             'alamat' => Request()->alamat,
             'no_hp' => Request()->no_telpon,
@@ -146,28 +195,42 @@ class UserDashboardController extends Controller
             'batas_bayar' => date('Y-m-d', strtotime('+1 day', strtotime($daynow))),
             'status' => 0,
         ];
-        $this->PembelianModel->addData($pesanan);
+        $this->PesananModel->addData('tbl_pesanan', $data);
+        $bayar = $this->PesananModel->lastIns();
+        $keranjang = session('tambah_keranjang');
+        $jml = count($keranjang);
 
-        $bayar = $this->PembelianModel->lastIns();
-        return redirect()->route('bayar',[$bayar->id_pesanan]);
+        for ($i = 0; $i < $jml; $i++) {
+            $subtotal = $keranjang[$i]['jumlah'] * $keranjang[$i]['harga'];
+            $detail = array(
+                'id_pesanan' => $bayar[0]->id_pesanan,
+                'id_brg'  => $keranjang[$i]['id_brg'],
+                'jumlah_brg'  => $keranjang[$i]['jumlah'],
+                'subtotal'  => $subtotal,
+            );
+            $this->PesananModel->addData('tbl_detail_pesanan', $detail);
+        }
+
+        session()->forget('tambah_keranjang');
+        return redirect()->route('bayar', [$bayar[0]->id_pesanan]);
     }
+
     //halaman bayar
     public function bayar($id)
     {
         $id_pesanan = $id;
-        // return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Tambahkan !!');
-        return redirect()->route('barang', compact('id_pesanan'));
+        return view('user.v_bayar', compact('id_pesanan'));
     }
 
     public function insBukti()
     {
         $file = Request()->bukti_tf;
-        $fileName = date('d/m/Y H:i'). '.' . $file->extension();
+        $fileName = time() . '.' . Request()->bukti_tf->extension();
         $file->move(public_path('foto/struk_pembayaran'), $fileName);
+        $data = ['bukti_tf' => $fileName, 'status' => 3,];
+        $w = ['id_pesanan' => Request()->id_pesanan,];
 
-        $data = array('bukti_tf' => $fileName, );
-        $w = array('id_pesanan' => Request()->id_pesanan, );
-        $this->PembelianModel->editData($w, $data);
-        return redirect()->route('pt_delaval');
+        $this->PesananModel->editData($w, $data);
+        return redirect()->route('riwayat');
     }
 }
