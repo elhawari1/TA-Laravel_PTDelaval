@@ -27,10 +27,10 @@ class KomentarController extends Controller
             'telepon' => 'required',
             'pesan' => 'required',
         ], [
-            'nama.required' => 'wajib diisi !!',
-            'email.required' => 'wajib diisi !!',
-            'telepon.required' => 'wajib diisi !!',
-            'pesan.required' => 'wajib diisi !!',
+            'nama.required' => 'wajib diisi',
+            'email.required' => 'wajib diisi',
+            'telepon.required' => 'wajib diisi',
+            'pesan.required' => 'wajib diisi',
         ]);
         $data = [
             'nama' => Request()->nama,
@@ -40,6 +40,6 @@ class KomentarController extends Controller
         ];
 
         $this->KomentarModel->addData($data);
-        return redirect()->route('kontak')->with('pesan', 'Pesan Anda Berhasil Di Kirim !!');
+        return redirect()->route('kontak')->with('pesan', 'Pesan Anda Berhasil Dikirim');
     }
 }

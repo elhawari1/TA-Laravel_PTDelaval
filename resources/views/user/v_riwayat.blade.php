@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 @endsection
 @section('content')
-<div class="container">
+<div class="container" style="font-family: Poppins, Arial, sans-serif;">
     <div class="box">
         <!-- /.box-header -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Pesanan</h3>
+                <h3 class="card-title" style="font-family: Poppins, Arial, sans-serif;">Data Pesanan</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -84,7 +84,7 @@
                         @endforeach
                         @if ($no == 1)
                         <tr>
-                            <td colspan="8"><h4> Riwayat Anda Kosong</h4></td>
+                            <td colspan="8"><h4>Anda belum melakukan pembelian</h4></td>
                         </tr>
                         @endif
                     </tbody>
@@ -93,7 +93,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.box-body -->
-        <div align="right">
+        <div align="left">
             <a href="/pt_delaval" class="btn btn-sm btn-danger" style="width: 150px; border-radius: 50px">Kembali</a>
         </div>
     </div>

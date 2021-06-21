@@ -1,4 +1,4 @@
- <footer class="ftco-footer ftco-section">
+ <footer class="ftco-footer ftco-section" style="font-family: Poppins, Arial, sans-serif;">
  <hr color="blue">
    <div class="container">
      <div class="row">

@@ -55,12 +55,12 @@ class BarangController extends Controller
             'stok' => 'required',
             'tanggal' => 'required',
         ], [
-            'nama.required' => 'wajib diisi !!',
-            'gambar.required' => 'wajib diisi !!',
-            'deskripsi.required' => 'wajib diisi !!',
-            'harga.required' => 'wajib diisi !!',
-            'stok.required' => 'wajib diisi !!',
-            'tanggal.required' => 'wajib diisi !!',
+            'nama.required' => 'wajib diisi',
+            'gambar.required' => 'wajib diisi',
+            'deskripsi.required' => 'wajib diisi',
+            'harga.required' => 'wajib diisi',
+            'stok.required' => 'wajib diisi',
+            'tanggal.required' => 'wajib diisi',
         ]);
         //jika validasi tidak ada maka simpan data
         //upload gambar / foto
@@ -78,7 +78,7 @@ class BarangController extends Controller
         ];
 
         $this->BarangModel->addData($data);
-        return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Tambahkan !!');
+        return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Tambahkan');
     }
 
     public function edit($id_brg)
@@ -111,10 +111,10 @@ class BarangController extends Controller
             'stok' => 'required',
             'tanggal' => 'required',
         ], [
-            'nama.required' => 'wajib diisi !!',
-            'deskripsi.required' => 'wajib diisi !!',
-            'harga.required' => 'wajib diisi !!',
-            'stok.required' => 'wajib diisi !!',
+            'nama.required' => 'wajib diisi',
+            'deskripsi.required' => 'wajib diisi',
+            'harga.required' => 'wajib diisi',
+            'stok.required' => 'wajib diisi',
         ]);
         //jika validasi tidak ada maka simpan data
         if (Request()->gambar <> "") {
@@ -144,7 +144,7 @@ class BarangController extends Controller
             ];
             $this->BarangModel->editData($id_brg, $data);
         }
-        return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Edit !!');
+        return redirect()->route('barang')->with('pesan', 'Data Berhasil Diubah');
     }
 
     public function delete($id_brg)
@@ -155,6 +155,6 @@ class BarangController extends Controller
             unlink(public_path('foto/barang') . '/' . $barang->gambar);
         }
         $this->BarangModel->deleteData($id_brg);
-        return redirect()->route('barang')->with('pesan', 'Data Berhasil Di Hapus !!');
+        return redirect()->route('barang')->with('pesan', 'Data Berhasil Dihapus');
     }
 }

@@ -15,7 +15,7 @@
         <li>Anda dapat mengirim barang pembelian anda seharga Rp. '. number_format($subtotal, 0, ',', '.');
         echo ' ke rekening XXX (BANK XXX) A.N XXX.</li>
         <li>Setelah melakukan pembayaran silahkan unggah bukti pembayaran anda pada kolom di bawah ini.</li>
-        <li>Harap menyelesaikan pembayaran sebelum tanggal xxx.'
+        <li>Harap menyelesaikan pembayaran sebelum tanggal yang ditentukan.'
     ?>
     <div class="card-body">
         <form action="/bayar/insert" method="post" enctype="multipart/form-data">

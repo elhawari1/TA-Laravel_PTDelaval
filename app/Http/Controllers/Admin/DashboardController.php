@@ -56,6 +56,6 @@ class DashboardController extends Controller
     {
         //hapus foto di folder public
         $this->KomentarModel->deleteData($id);
-        return redirect()->route('komentar')->with('pesan', 'Data Berhasil Di Hapus !!');
+        return redirect()->route('komentar')->with('pesan', 'Data Berhasil Dihapus');
     }
 }
