@@ -36,8 +36,11 @@
                                 </strong></td>
                         </tr>
                     </table>
-
+                    @if ($barang->stok != 0)
                     <a href="/keranjang/tambah/{{ $barang->id_brg }}" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px" onclick="sweetAlert1()">Tambah Keranjang</a>
+                    @else
+                    <a href="" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px" onclick="sweetAlert2()">Tambah Keranjang</a>
+                    @endif
                     <a href="/pt_delaval" class="btn btn-danger pull-left" style="width: 100px; border-radius: 50px">Kembali</a><br>
                 </div>
             </div>
