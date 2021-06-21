@@ -4,68 +4,108 @@
 @section('content')
 
 <div class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0">Dashboard</h1><br>
-      </div><!-- /.col -->
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1><br>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 
 </div>
 <!-- /.content-header -->
 
 <!-- Main content -->
 <section class="content">
-  <div class="container-fluid">
-    <!-- Info boxes -->
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1"><i class="acon fa fa-box"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Jumlah barang</span>
-            <span class="info-box-number">
-              <?php
-              $b = 0;
-              ?>
-              @foreach($barang as $a)
-              <?php $b++; ?>
-              @endforeach
-              {{$b}}
-            </span>
-          </div>
-          <!-- /.info-box-content -->
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3><?php $b = 0; ?>
+                            @foreach($barang as $a)
+                            <?php $b++; ?>
+                            @endforeach
+                            {{$b}}
+                        </h3>
+                        <p>Barang</p>
+                    </div>
+                    <div class="icon">
+                        <i class="acon fa fa-box"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3><?php $b = 0; ?>
+                            @foreach($komentar as $a)
+                            <?php $b++; ?>
+                            @endforeach
+                            {{$b}}
+                        </h3>
+                        <p>Komentar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="acon fa fa-comments"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3><?php $b = 0; ?>
+                            @foreach($pesanan as $a)
+                            <?php $b++; ?>
+                            @endforeach
+                            {{$b}}
+                        </h3>
+                        <p>Pesanan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3><?php $b = 0; ?>
+                            @foreach($users as $a)
+                            <?php $b++; ?>
+                            @endforeach
+                            {{$b}}
+                        </h3>
+                        <p>Pengguna</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
         </div>
-        <!-- /.info-box -->
-      </div>
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-success elevation-1"><i class="acon fa fa-comments"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Jumlah komentar</span>
-            <span class="info-box-number">
-              <?php
-              $b = 0;
-              ?>
-              @foreach($komentar as $a)
-              <?php $b++; ?>
-              @endforeach
-              {{$b}}
-            </span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
+        <!-- /.row -->
+        <!-- Main row -->
     </div><!-- /.container-fluid -->
-
 </section>
 
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangModel;
 use App\Models\User\KomentarModel;
+use App\Models\User\PesananModel;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -13,6 +14,7 @@ class DashboardController extends Controller
     {
         $this->KomentarModel = new KomentarModel();
         $this->BarangModel = new BarangModel();
+        $this->PesananModel = new PesananModel();
     }
 
     public function index()
@@ -26,6 +28,8 @@ class DashboardController extends Controller
             $data = [
                 'barang' => $this->BarangModel->allData(),
                 'komentar' => $this->BarangModel->allDataKomentar(),
+                'users' => $this->KomentarModel->allPengguna(),
+                'pesanan' => $this->PesananModel->allData(),
             ];
 
             return view('admin_delaval.v_dashboard',$data);

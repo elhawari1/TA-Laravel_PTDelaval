@@ -22,4 +22,9 @@ class KomentarModel extends Model
     {
         DB::table('komentar')->where('id', $id)->delete();
     }
+
+    public function allPengguna()
+    {
+        return DB::table('users')->get();
+    }
 }
