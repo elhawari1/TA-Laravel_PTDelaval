@@ -7,6 +7,7 @@ use App\Models\Admin\BarangModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User\PesananModel;
+use GrahamCampbell\ResultType\Result;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -147,9 +148,13 @@ class UserDashboardController extends Controller
 
             for ($idplus = 0; $idplus < $jml; $idplus++) {
                 if ($keranjang[$idplus]['id_brg'] == $id_brg) {
-
-                    $keranjang[$idplus]['jumlah'] += 1;
-                    session(['tambah_keranjang' => $keranjang]);
+                    $barang = DB::table('tbl_barang')->where('id_brg', '=', $keranjang[$idplus]['id_brg'])->get()->first();
+                    $stok = $barang->stok;
+                    if ($keranjang[$idplus]['jumlah'] < 10) {
+                        $keranjang[$idplus]['jumlah'] += 1;
+                        // dd(session('tambah_keranjang'));
+                        session(['tambah_keranjang' => $keranjang]);
+                    }
                 }
             }
         }
@@ -208,8 +213,16 @@ class UserDashboardController extends Controller
                 'jumlah_brg'  => $keranjang[$i]['jumlah'],
                 'subtotal'  => $subtotal,
             );
+            $barang = DB::table('tbl_barang')->where('id_brg', '=', $keranjang[$i]['id_brg'])->get();
+            $stok = $barang[0]->stok -  $keranjang[$i]['jumlah'];
+            $data_upd = array('stok' => $stok,);
+            DB::table('tbl_barang')->where('id_brg', $keranjang[$i]['id_brg'])->update($data_upd);
+
             $this->PesananModel->addData('tbl_detail_pesanan', $detail);
         }
+
+
+
 
         session()->forget('tambah_keranjang');
         return redirect()->route('bayar', [$bayar[0]->id_pesanan]);

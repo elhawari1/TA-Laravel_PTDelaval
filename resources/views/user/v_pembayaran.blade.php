@@ -28,7 +28,7 @@
                         <span class="input-group-text"><span class="fa fa-user"></span></span>
                     </div>
                     <input type="number" name="total" id="total" value="{{ $subtotal }}" hidden>
-                    <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control">
+                    <input type="text" name="nama" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}"class="form-control" readonly>
 
                 </div>
 

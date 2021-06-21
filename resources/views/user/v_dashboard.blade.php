@@ -51,7 +51,12 @@
         <div class="card-footer bg-transparent">
           <div class="row">
             <div class="col">
-              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert1()">Beli</a>
+              @if ($data->stok != 0)
+                  <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px" onclick="sweetAlert1()" >Beli</a>
+                @else
+
+                  <a  href="" class="btn btn-sm btn-success" style="width: 100px; " onclick="sweetAlert2()" >Beli</a>
+                @endif
             </div>
             <div class="col">
               <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px; border-radius: 50px">Detail</a>

@@ -140,6 +140,12 @@
     )
     }
     </script>
+        <script type="text/javascript">
+    function sweetAlert2()
+    {
+    swal('Stok Habis')
+    }
+    </script>
     @yield('js')
 
 </body>
