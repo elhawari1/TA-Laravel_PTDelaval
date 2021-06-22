@@ -57,7 +57,7 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th style="width:10%;">Action</th>
+                            <!-- <th style="width:10%;">Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -68,13 +68,13 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->role == '1' ? 'Admin' : 'User' }}</td>
-                            <td colspan="2">
+                            <!-- <td colspan="2">
                                 {{-- <a href="/barang/detail/{{ $data->id_brg }}" class="btn btn-sm btn-success">Detail</a> --}}
                                 <a href="/user/edit/{{ $data->id }}" class="btn btn-warning"><i class="icon fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id }}">
                                     <i class="icon fa fa-trash"></i>
                                 </button>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                     </tbody>
