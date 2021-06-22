@@ -21,7 +21,7 @@ class DashboardController extends Controller
     {
         if (Auth::user()->role == 2) {
             $data = [
-            'barang' => $this->BarangModel->allData(),
+            'barang' => $this->BarangModel->allDataUser(),
             ];
             return view('user.v_dashboard', $data);
         }else{
