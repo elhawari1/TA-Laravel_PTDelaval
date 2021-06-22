@@ -5,7 +5,6 @@ namespace App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-
 class PesananModel extends Model
 {
 

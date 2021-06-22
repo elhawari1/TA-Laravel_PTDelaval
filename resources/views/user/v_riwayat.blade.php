@@ -59,18 +59,7 @@
                                 @endif
                             </td>
                             <td colspan="2">
-                                @if ($data->status == 1)
-                                @elseif ($data->status == 0)
-                                <a href="/bayar/{{ $data->id_pesanan }}" class="btn-sm btn-success mr-1"
-                                    onclick="sweetAlert()">
-                                    Bayar
-                                </a>
-                                @elseif ($data->status == 2)
-                                <a href="/bayar/{{ $data->id_pesanan }}" class="btn-sm btn-success mr-1"
-                                    onclick="sweetAlert()">
-                                    Bayar
-                                </a>
-                                @elseif ($data->status == 3)
+                                @if ($data->status != 1)
                                 <a href="/bayar/{{ $data->id_pesanan }}" class="btn-sm btn-success mr-1"
                                     onclick="sweetAlert()">
                                     Bayar
