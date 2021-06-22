@@ -10,16 +10,27 @@
         </a></span>
     <h1 class="mb-0 bread font-weight-bold">Produk Kami</h1>
   </div>
-</div>
+  <div style="margin-top: 20px;">
+    <form action="/pt_delaval/barang" method="GET">
+      @csrf
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="nama" placeholder="Cari Barang" aria-describedby="button-addon2">
+        <input type="hidden" name="route" value="produk">
+        <button class="btn btn-outline-primary" type="submit" id="button-addon2">
+          <span><i class="fa fa-search" aria-hidden="true"></i></span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="ml-5">
   <div class="row text-center mt-4">
     @foreach ($barang as $data)
-    <div class="card ml-3 mb-3" style="width: 18rem;">
+    <div class="card ml-2 mb-3" style="width: 18rem;">
       <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
       <div class="card-body">
-        <h5 class="card-title">{{ $data->nama }}</h5>
+        <span class="card-title ml-4">{{ $data->nama }}</span>
         <span class="badge badge-success mb-3">Rp.{{ number_format($data->harga, 0, ',', '.') }}</span>
         <p class="card-text">{{ $data->deskripsi }}</p>
       </div>
@@ -43,19 +54,7 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col text-center">
-      <div class="block-27">
-        <ul>
-          <li><a href="#">&lt;</a></li>
-          <li class="active"><span>1</span></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&gt;</a></li>
-        </ul>
-      </div>
-    </div>
+    {{$barang->links("pagination::bootstrap-4")}}
   </div>
 </div>
 

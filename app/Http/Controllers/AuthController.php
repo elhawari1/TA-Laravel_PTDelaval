@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         } else {
             if (Auth::attempt(['role' => 2, 'password' => $request->password])) {
-                return redirect('/pt_delaval');
+                return redirect('/');
             } else {
                 return redirect('/');
             }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BarangController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PesananController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\KomentarController;
 use App\Http\Controllers\User\UserDashboardController;
@@ -56,9 +57,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/komentar', [DashboardController::class, 'indexkomentar'])->name('komentar');
     // admin hapus komentar
     Route::get('/komentar/delete/{id}', [DashboardController::class, 'delete']);
+
+    // User Master
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/user/add', [UserController::class,'add']);
+    Route::post('/user/insert', [UserController::class,'insert']);
+    Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+    Route::post('/user/update/{id}', [UserController::class, 'update']);
+    Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 });
 
 //Halaman User
+// Route::get('/', [UserDashboardController::class, 'index'])->name('pt_delaval');
 Route::get('/pt_delaval', [UserDashboardController::class, 'index'])->name('pt_delaval');
 // user detail barang
 Route::get('/detail/barang/{id_brg}', [UserDashboardController::class, 'detail']);
@@ -68,6 +78,9 @@ Route::get('/produk', [UserDashboardController::class, 'produk']);
 Route::get('/about', [UserDashboardController::class, 'about']);
 // user Kontak Kami
 Route::get('/kontak', [UserDashboardController::class, 'kontak'])->name('kontak');
+
+//Cari barang
+Route::get('/pt_delaval/barang', [UserDashboardController::class, 'cariBarang']);
 
 Route::group(['middleware' => 'auth'], function () {
 // user tambah komentar Kami
