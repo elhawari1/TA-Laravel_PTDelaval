@@ -1,4 +1,4 @@
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
+ <aside class="main-sidebar sidebar-dark-primary elevation-4" style="font-family: Poppins, Arial, sans-serif;">
      <!-- Brand Logo -->
      <span class="brand-link">
          <span class="font-weight-bold">

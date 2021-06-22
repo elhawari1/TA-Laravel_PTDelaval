@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="font-family: Poppins, Arial, sans-serif;">
 	<div class="container">
 		<?php $keranjang = session('tambah_keranjang');
 		$k = 0;
@@ -27,7 +27,7 @@
 						<a class="dropdown-item" href="/kontak">Kontak Kami</a>
 					</div>
 				</li>
-				<li class="nav-item cta cta-colored"><a href="/riwayat" class="nav-link"><span class="fa fa-bell">Riwayat</span></a></li>
+				<li class="nav-item"><a href="/riwayat" class="nav-link"><i class="fas fa-bell"></i> Riwayat</a></li>
 				<li class="nav-item cta cta-colored"><a href="/keranjang" class="nav-link"><span class="icon-shopping_cart"></span>{{ $sum }}</a></li>
 				@if (Auth::user() != null)
 				<li class="nav-item active"><a href="/logout" class="nav-link">Selamat Datang {{ Auth::user()->name }}, Logout</a></li>

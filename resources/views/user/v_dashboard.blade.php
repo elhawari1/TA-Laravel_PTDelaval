@@ -36,10 +36,10 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-  <section class="ftco-section">
-    <div class="ml-5">
-      <div class="row text-center mt-4">
+  </div><br>
+
+  <div class="ml-5">
+    <div class="row text-center mt-4">
       @foreach ($barang as $data)
       <div class="card ml-3 mb-3" style="width: 18rem;">
         <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
@@ -52,10 +52,10 @@
           <div class="row">
             <div class="col">
               @if ($data->stok != 0)
-                  <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert1()" >Beli</a>
-                @else
-                  <a href="" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert2()" >Beli</a>
-                @endif
+              <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert1()">Beli</a>
+              @else
+              <a href="" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert2()">Beli</a>
+              @endif
             </div>
             <div class="col">
               <a href="/detail/barang/{{ $data->id_brg }}" class="btn btn-sm btn-warning" style="width: 100px; border-radius: 50px">Detail</a>
@@ -65,7 +65,6 @@
       </div>
       @endforeach
     </div>
-    </div>
+  </div>
 </div>
-</section>
 @endsection
