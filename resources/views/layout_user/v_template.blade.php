@@ -60,7 +60,7 @@
                         <div class="col-md pr-4 d-flex topper align-items-center">
                             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
                                     class="icon-phone2"></span></div>
-                            <span class="text">0341-5535-15</span>
+                            <span class="text">0341-865-7007</span>
                         </div>
                         <div class="col-md pr-4 d-flex topper align-items-center">
                             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
@@ -144,6 +144,13 @@
     function sweetAlert2()
     {
     swal('Stok Habis')
+    }
+    </script>
+    </script>
+        <script type="text/javascript">
+    function sweetAlert3()
+    {
+    swal('Komentar anda telah kami terima')
     }
     </script>
     @yield('js')

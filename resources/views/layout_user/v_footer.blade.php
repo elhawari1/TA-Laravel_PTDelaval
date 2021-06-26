@@ -16,7 +16,7 @@
            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
              <h2>Sosial Media</h2>
              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-             <li class="ftco-animate"><a href="https://www.facebook.com/DeLaval" target="_blank"><span class="icon-facebook"></span></a></li>
+             <li class="ftco-animate"><a href="https://www.facebook.com/pages/Delaval-Indonesia/272769023091386" target="_blank"><span class="icon-facebook"></span></a></li>
              <li class="ftco-animate"><a href="https://www.instagram.com/delavalmalang/?hl=en" target="_blank"><span class="icon-instagram"></span></a></li>
            </ul>
          </div>
@@ -56,7 +56,7 @@
            <div class="block-23 mb-3">
              <ul>
                <li><span class="icon icon-map-marker"></span><span class="text">Perum Bukit Hijau Blok B-Kav.39,Jalan Raya Tlogomas, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144</span></li>
-               <li><span class="icon icon-phone"></span><span class="text">0341-5535-15</span></li>
+               <li><span class="icon icon-phone"></span><span class="text">0341-865-7007</span></li>
                <li><span class="icon icon-envelope"></span><span class="text">info@delaval-indonesia.com</span></li><br>
                <li><span class="text">
                    <h2 class="ftco-heading-2">Ingin Membuat Kandang?</h2>

@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
     // admin tampil data komentar user
     Route::get('/komentar', [DashboardController::class, 'indexkomentar'])->name('komentar');
     // admin hapus komentar
-    Route::get('/komentar/delete/{id}', [DashboardController::class, 'delete']);
+    Route::get('/komentar/delete/{id_komentar}', [DashboardController::class, 'delete']);
 
     // User Master
     Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -78,13 +78,12 @@ Route::get('/produk', [UserDashboardController::class, 'produk']);
 Route::get('/about', [UserDashboardController::class, 'about']);
 // user Kontak Kami
 Route::get('/kontak', [UserDashboardController::class, 'kontak'])->name('kontak');
-
+// user tambah komentar Kami
+Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 //Cari barang
 Route::get('/pt_delaval/barang', [UserDashboardController::class, 'cariBarang']);
 
 Route::group(['middleware' => 'auth'], function () {
-// user tambah komentar Kami
-Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 // user keranjang Kami
 Route::get('/riwayat', [UserDashboardController::class, 'riwayat'])->name('riwayat');
 // admin detailriwayat

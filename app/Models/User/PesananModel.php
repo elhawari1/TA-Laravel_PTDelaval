@@ -2,7 +2,9 @@
 
 namespace App\Models\User;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class PesananModel extends Model
@@ -40,5 +42,47 @@ class PesananModel extends Model
     public function editData($w, $data)
     {
         DB::table('tbl_pesanan')->where($w)->update($data);
+    }
+
+    // stok kembali
+
+    public function getPesananBelumBayar()
+    {
+      return DB::table('tbl_pesanan')->where('status',0)->get();
+    }
+
+    public function getPesananTenggat($tenggat)
+    {
+      return DB::table('tbl_pesanan')->where('batas_bayar',$tenggat)->where('status',0)->get();
+    }
+
+    public function cekPesananTenggat()
+    {
+      $data = $this->getPesananTenggat(date_format(new Carbon(),'Y-m-d'));
+      foreach ($data as $dataPesanan) {
+        $this->getDetailTransaksiBelumBayarAndRevokeStok($dataPesanan->id_pesanan);
+
+        $this->deleteDetailPesanan($dataPesanan->id_pesanan);
+        $this->deletePesanan($dataPesanan->id_pesanan);
+      }
+      return $data;
+    }
+
+    public function getDetailTransaksiBelumBayarAndRevokeStok($id)
+    {
+      $dataDetailPesanan = DB::table('tbl_detail_pesanan')->where('id_pesanan',$id)->get();
+      foreach ($dataDetailPesanan as $ddp) {
+        DB::table('tbl_barang')->where('id_brg',$ddp->id_brg)->increment('stok',$ddp->jumlah_brg);
+      }
+    }
+
+    public function deleteDetailPesanan($id)
+    {
+      return DB::table('tbl_detail_pesanan')->where('id_pesanan',$id)->delete();
+    }
+
+    public function deletePesanan($id)
+    {
+      return DB::table('tbl_pesanan')->where('id_pesanan',$id)->delete();
     }
 }

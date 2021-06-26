@@ -29,7 +29,30 @@
                     </div>
                     <input type="number" name="total" id="total" value="{{ $subtotal }}" hidden>
                     <input type="text" name="nama" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}"class="form-control" readonly>
+                </div>
 
+                <h6>Kota/Kabupaten</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="fa fa-location-arrow"></span></span>
+                    </div>
+                    <input type="text" name="koten" placeholder="Kota / Kabupaten" class="form-control">
+                </div>
+
+                <h6>Kecamatan</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="fa fa-location-arrow"></span></span>
+                    </div>
+                    <input type="text" name="kecamatan" placeholder="Kecamatan" class="form-control">
+                </div>
+
+                <h6>Kelurahan</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="fa fa-location-arrow"></span></span>
+                    </div>
+                    <input type="text" name="kelurahan" placeholder="Kelurahan" class="form-control">
                 </div>
 
                 <h6>Alamat Lengkap</h6>

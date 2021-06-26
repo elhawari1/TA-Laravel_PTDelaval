@@ -50,7 +50,7 @@
                     <td>{{ $data->telepon }}</td>
                     <td>{{ $data->pesan }}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id }}">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_komentar }}">
                         <i class="icon fa fa-trash"></i>
                         </button>
                     </td>
@@ -66,7 +66,7 @@
     </section>
 
     @foreach ($komentar as $data)
-        <div class="modal modal-danger fade" id="delete{{ $data->id }}">
+        <div class="modal modal-danger fade" id="delete{{ $data->id_komentar }}">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-                        <a href="/komentar/delete/{{ $data->id }}" class="btn btn-outline">Yes</a>
+                        <a href="/komentar/delete/{{ $data->id_komentar }}" class="btn btn-outline">Yes</a>
                     </div>
                 </div>
             </div>
