@@ -89,12 +89,12 @@
                             <td colspan="3">
                                 @if ($data->status == 3 )
                                 <a href="/pesanan/terima/{{ $data->id_pesanan }}" class="btn-sm btn-success"><i
-                                        class="icon fa fa-check"> </i></a>
+                                        class="icon fa fa-check" title="Diterima"></i></a>
                                 <a href="/pesanan/tolak/{{ $data->id_pesanan }}" class="btn-sm btn-danger"><i
-                                        class="icon fa fa-times"></i></a>
+                                        class="icon fa fa-times" title="Ditolak"></i></a>
                                 @endif
                                 <a href="/pesanan/detail/{{ $data->id_pesanan }}" class="btn-sm btn-warning"><i
-                                        class="icon fa fa-info"></i></a>
+                                        class="icon fa fa-info" title="Detail"></i></a>
                             </td>
                         </tr>
                         @endforeach

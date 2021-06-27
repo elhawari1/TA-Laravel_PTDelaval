@@ -39,6 +39,8 @@
                     <input type="text" name="koten" placeholder="Kota / Kabupaten" class="form-control">
                 </div>
 
+                <div class="form-row">
+                <div class="col">
                 <h6>Kecamatan</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -46,7 +48,8 @@
                     </div>
                     <input type="text" name="kecamatan" placeholder="Kecamatan" class="form-control">
                 </div>
-
+                </div>
+                <div class="col">
                 <h6>Kelurahan</h6>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -54,6 +57,9 @@
                     </div>
                     <input type="text" name="kelurahan" placeholder="Kelurahan" class="form-control">
                 </div>
+                </div>
+                </div>
+
 
                 <h6>Alamat Lengkap</h6>
                 <div class="input-group mb-3">
@@ -87,6 +93,7 @@
                        Konfirmasi Pembayaran
                     </button>
                 </div>
+
                 </form>
             </div>
     </div>

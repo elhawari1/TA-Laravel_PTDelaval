@@ -44,9 +44,7 @@
 
         <div class="card">
             <div class="card-header">
-                <a href="/barang/add" class="btn btn-outline-primary" style="float: right"><i class="icon fa fa-plus"></i></a>
-                {{-- <a href="/barang/print" target="_blank" class="btn btn-info pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>Print to Printer</a>
-                <a href="/barang/printpdf" target="_blank" class="btn btn-dark pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>Print to Pdf</a> --}}
+                <a href="/barang/add" class="btn btn-outline-primary" style="float: right"><i class="icon fa fa-plus" title="Tambah"></i></a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -76,9 +74,9 @@
                             <td>{{ $data->tanggal }}</td>
                             <td colspan="2">
                                 {{-- <a href="/barang/detail/{{ $data->id_brg }}" class="btn btn-sm btn-success">Detail</a> --}}
-                                <a href="/barang/edit/{{ $data->id_brg }}" class="btn btn-warning"><i class="icon fa fa-edit"></i></a>
+                                <a href="/barang/edit/{{ $data->id_brg }}" class="btn btn-warning"><i class="icon fa fa-edit" title="Edit"></i></a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
-                                    <i class="icon fa fa-trash"></i>
+                                    <i class="icon fa fa-trash" title="Hapus"></i>
                                 </button>
                             </td>
                         </tr>

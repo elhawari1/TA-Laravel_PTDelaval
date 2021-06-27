@@ -81,17 +81,17 @@
                         class="bg-white p-5 contact-form">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="nama" class="form-control" placeholder="Nama Anda">
+                            <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Email Anda">
+                            <input type="text" name="email" class="form-control" placeholder="Email Anda" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telepon" class="form-control" placeholder="Telepon">
+                            <input type="text" name="telepon" class="form-control" placeholder="Telepon" required>
                         </div>
                         <div class="form-group">
                             <textarea type="text" name="pesan" cols="30" rows="7" class="form-control"
-                                placeholder="Pesan Anda"></textarea>
+                                placeholder="Pesan Anda"required></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-sm" onclick="sweetAlert3()">Kirim Pesan</button>
