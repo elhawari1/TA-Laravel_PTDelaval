@@ -24,7 +24,7 @@
     <div class="container-fluid">
 
         <?php
-        echo '<p><h5>Tujuan Pengiriman : '.($pesanan[0]->koten) .', '.($pesanan[0]->kecamatan) .', '.($pesanan[0]->kelurahan) .' </h5></p>'
+        echo '<p><h5>Tujuan Pengiriman : '.($pesanan[0]->koten) .', '.($pesanan[0]->kecamatan) .', '.($pesanan[0]->kelurahan) .', '.($pesanan[0]->alamat) .', '.($pesanan[0]->kode_pos) .' </h5></p>'
         ?>
 
         <div class="card">

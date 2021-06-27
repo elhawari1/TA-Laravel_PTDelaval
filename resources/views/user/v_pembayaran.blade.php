@@ -84,7 +84,7 @@
                         <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
                     </a>
                     <button type="submit" class="btn btn-primary" style="width: 100px; border-radius: 50px" onclick="sweetAlert()">
-                       Bayar
+                       Konfirmasi Pembayaran
                     </button>
                 </div>
                 </form>
