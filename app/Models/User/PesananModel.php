@@ -24,7 +24,7 @@ class PesananModel extends Model
         return DB::table('tbl_detail_pesanan as a')
         ->join('tbl_pesanan as b', 'a.id_pesanan', '=', 'b.id_pesanan')
         ->join('tbl_barang as c', 'a.id_brg', '=', 'c.id_brg')
-        ->select('a.*', 'c.nama as barang')
+        ->select('a.*', 'c.nama as barang', 'b.*')
         ->where('a.id_pesanan', $id_pesanan)
         ->get();
     }
