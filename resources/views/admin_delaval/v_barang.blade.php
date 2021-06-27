@@ -5,7 +5,8 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="{{ asset('template_admin'
+) }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 {{-- Modal Image --}}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,7 +15,7 @@
 
 @section('content')
 @if (session('pesan'))
-<div class="alert alert-success alert-dismissible">
+<div class="alert alert-success alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h4><i class="icon fa fa-check"></i> Success!</h4>
     {{ session('pesan') }}.
@@ -162,5 +163,14 @@
         document.getElementById("img01").src = element.src;
         document.getElementById("modal01").style.display = "block";
     }
+</script>
+
+<!-- Menghilangkan Modal -->
+<script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 3000);
 </script>
 @endsection

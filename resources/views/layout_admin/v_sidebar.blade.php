@@ -57,7 +57,7 @@
           <a href="{{ route('komentar') }}"
             class="nav-link {{ Route::currentRouteName() === 'komentar' ? 'active' : '' }}">
             <font style="color: white;"><i class="nav-icon fa fa-comment"></i>
-              <p>Komentar</p>
+              <p>Pesan User</p>
             </font>
           </a>
         </li>

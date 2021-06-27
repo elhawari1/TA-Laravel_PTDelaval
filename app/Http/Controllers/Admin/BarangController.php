@@ -55,12 +55,12 @@ class BarangController extends Controller
             'stok' => 'required',
             'tanggal' => 'required',
         ], [
-            'nama.required' => 'wajib diisi',
-            'gambar.required' => 'wajib diisi',
-            'deskripsi.required' => 'wajib diisi',
-            'harga.required' => 'wajib diisi',
-            'stok.required' => 'wajib diisi',
-            'tanggal.required' => 'wajib diisi',
+            'nama.required' => ' wajib diisi',
+            'gambar.required' => ' wajib diisi',
+            'deskripsi.required' => ' wajib diisi',
+            'harga.required' => ' wajib diisi',
+            'stok.required' => ' wajib diisi',
+            'tanggal.required' => ' wajib diisi',
         ]);
         //jika validasi tidak ada maka simpan data
         //upload gambar / foto
@@ -111,10 +111,10 @@ class BarangController extends Controller
             'stok' => 'required',
             'tanggal' => 'required',
         ], [
-            'nama.required' => 'wajib diisi',
-            'deskripsi.required' => 'wajib diisi',
-            'harga.required' => 'wajib diisi',
-            'stok.required' => 'wajib diisi',
+            'nama.required' => ' wajib diisi',
+            'deskripsi.required' => ' wajib diisi',
+            'harga.required' => ' wajib diisi',
+            'stok.required' => ' wajib diisi',
         ]);
         //jika validasi tidak ada maka simpan data
         if (Request()->gambar <> "") {

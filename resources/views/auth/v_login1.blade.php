@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/jpg" href="{{ asset('template_user') }}/images/logo_dairyfarm.jpg">
+  <link rel="icon" type="image/jpg" href="{{ asset('template_user') }}/images/logo_dairyfarm.jpg">
 
   <title>Login</title>
 
@@ -20,9 +20,9 @@
 
 <body class="hold-transition login-page">
   @if (session('pesan'))
-  <div class="alert alert-danger alert-dismissible">
+  <div class="alert alert-danger alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h4><i class="icon fa fa-check"></i>Salah!</h4>
+    <h4><i class="icon fa fa-check"></i>Data yang anda masukkan salah</h4>
     {{ session('pesan') }}.
   </div>
   @endif
@@ -90,6 +90,15 @@
         }
       });
     });
+  </script>
+
+  <!-- Menghilangkan Modal -->
+  <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 3000);
   </script>
 </body>
 

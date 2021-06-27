@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->back()->with('pesan', 'Login Salah !!');
+            return redirect()->back()->with('pesan', 'Silahkan masukkan kembali email dan password anda');
 
         } else {
             if (Auth::attempt(['role' => 2, 'password' => $request->password])) {
