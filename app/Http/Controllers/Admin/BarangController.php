@@ -46,7 +46,6 @@ class BarangController extends Controller
     //validasi dan add
     public function insert()
     {
-
         Request()->validate([
             'nama' => 'required',
             'gambar' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',

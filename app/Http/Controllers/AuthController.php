@@ -47,8 +47,8 @@ class AuthController extends Controller
                 'role' => '2',
                 'password' => bcrypt($request->password)
             ]);
-
-            return redirect()->route('login');
+            
+            return redirect()->route('login')->with('success', 'Register Berhasil');
     }
     public function logout()
     {

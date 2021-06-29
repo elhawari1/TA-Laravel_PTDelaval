@@ -37,14 +37,14 @@
               <p>Barang</p>
             </font>
           </a>
-        <!-- </li>
-        <li class="nav-item">
+        </li>
+        {{-- <li class="nav-item">
           <a href="{{ route('user') }}" class="nav-link {{ Route::currentRouteName() === 'user' ? 'active' : '' }}">
             <font style="color: white;"><i class="nav-icon fa fa-user"></i>
               <p>User</p>
             </font>
           </a>
-        </li> -->
+        </li> --}}
         <li class="nav-item">
           <a href="{{ route('pesanan') }}"
             class="nav-link {{ Route::currentRouteName() === 'pesanan' ? 'active' : '' }}">

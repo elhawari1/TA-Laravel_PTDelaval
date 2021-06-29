@@ -69,7 +69,7 @@
                                 <div class="col">
                                     @if ($data->stok != 0)
                                         <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success"
-                                            style="width: 100px; border-radius: 50px" onclick="sweetAlert1()">Beli</a>
+                                            style="width: 100px; border-radius: 50px">Beli</a>
                                     @else
                                         <a href="" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px"
                                             onclick="sweetAlert2()">Beli</a>

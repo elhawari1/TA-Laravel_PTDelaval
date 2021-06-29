@@ -23,15 +23,21 @@
         <input type="hidden" name="id_pesanan" value="{{ $id_pesanan }}">
         <div class="form-group">
             <h4>Unggah bukti pembayaran</h4>
-            <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true">
+            <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true" value="{{ old('bukti_tf') }}">
+            <div class="text-danger">
+                @error('bukti_tf')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
 
         <div align="right">
             <a href="/keranjang">
                 <div class="btn btn-danger" style="width: 100px; border-radius: 50px">Kembali</div>
             </a>
-            <button type="submit" class="btn btn-primary" style="width: 100px; border-radius: 50px"
-                onclick="sweetAlert()">Bayar</button>
+            <button type="submit" class="btn btn-primary" style="width: 100px; border-radius: 50px">
+                Bayar
+            </button>
         </div>
         </form>
     </div>

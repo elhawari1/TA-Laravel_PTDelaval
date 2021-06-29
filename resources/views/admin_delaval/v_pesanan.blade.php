@@ -42,9 +42,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pemesan</th>
-                            {{-- <th>Kota / Kabupaten</th>
-                            <th>Kecamatan</th>
-                            <th>Kelurahan</th> --}}
                             <th>Alamat Pengirim</th>
                             <th>Tanggal Pemesanan</th>
                             <th>Batas Bayar</th>
@@ -59,9 +56,6 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->name }}</td>
-                            {{-- <td>{{ $data->koten }}</td> --}}
-                            {{-- <td>{{ $data->kelurahan }}</td> --}}
-                            {{-- <td>{{ $data->kecamatan}}</td> --}}
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->tgl_pesan }}</td>
                             <td>{{ $data->batas_bayar }}</td>

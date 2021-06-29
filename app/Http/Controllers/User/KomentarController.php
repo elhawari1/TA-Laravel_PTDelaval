@@ -24,7 +24,7 @@ class KomentarController extends Controller
     {
         Request()->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'telepon' => 'required',
             'pesan' => 'required',
         ], [
@@ -41,6 +41,6 @@ class KomentarController extends Controller
         ];
 
         $this->KomentarModel->addData($data);
-        return redirect()->route('kontak')->with('pesan', 'Pesan Anda Berhasil Dikirim');
+        return redirect()->route('kontak')->with('success', 'Pesan anda terkirim');
     }
 }

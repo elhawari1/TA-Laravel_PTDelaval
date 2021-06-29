@@ -80,7 +80,7 @@
 
     @include('layout_user.v_footer')
 
-
+    @include('sweetalert::alert')
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
@@ -119,32 +119,13 @@
 
     <script type="text/javascript">
         function sweetAlert() {
-            Swal.fire(
-                'Terimakasih Telah Melakukan Pemesanan',
-                '',
-                'success'
-            )
-        }
-    </script>
-    <script type="text/javascript">
-        function sweetAlert1() {
-            Swal.fire(
-                '',
-                'Produk Telah Ditambahkan Ke Keranjang Belanja',
-                'success'
-            )
+            swal('Terimakasih Telah Melakukan Pemesanan')
         }
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
             swal('Stok Habis')
         }
-    </script>
-    <script type="text/javascript">
-        function sweetAlert3() {
-            swal('Komentar anda telah kami terima')
-        }
-    </script>
     </script>
     @yield('js')
 

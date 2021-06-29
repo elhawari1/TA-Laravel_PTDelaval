@@ -43,10 +43,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/barang/update/{id_brg}', [BarangController::class, 'update']);
     // admin hapus barang
     Route::get('/barang/delete/{id_brg}', [BarangController::class, 'delete']);
-    // // admin print data barang
-    // Route::get('/barang/print', [BarangController::class, 'print']);
-    // // admin printpdf data barang
-    // Route::get('/barang/printpdf', [BarangController::class, 'printpdf']);
     // admin pesanan
     Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
     Route::get('/pesanan/terima/{id}', [PesananController::class, 'terima'])->name('terima');
@@ -58,13 +54,13 @@ Route::group(['middleware' => 'auth'], function () {
     // admin hapus komentar
     Route::get('/komentar/delete/{id_komentar}', [DashboardController::class, 'delete']);
 
-    // User Master
-    Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::get('/user/add', [UserController::class,'add']);
-    Route::post('/user/insert', [UserController::class,'insert']);
-    Route::get('/user/edit/{id}', [UserController::class, 'edit']);
-    Route::post('/user/update/{id}', [UserController::class, 'update']);
-    Route::get('/user/delete/{id}', [UserController::class, 'delete']);
+    // // User Master
+    // Route::get('/user', [UserController::class, 'index'])->name('user');
+    // Route::get('/user/add', [UserController::class,'add']);
+    // Route::post('/user/insert', [UserController::class,'insert']);
+    // Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+    // Route::post('/user/update/{id}', [UserController::class, 'update']);
+    // Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 });
 
 //Halaman User

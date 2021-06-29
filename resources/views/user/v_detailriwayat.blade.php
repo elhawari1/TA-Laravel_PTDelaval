@@ -37,6 +37,9 @@
             </div>
             <!-- /.card-body -->
         </div>
+        <?php
+            echo '<p><h5>Tujuan Pengiriman : '.($pesanan[0]->alamat) .', '.($pesanan[0]->kode_pos) .', Kec. '.($pesanan[0]->kecamatan) .', Kel. '.($pesanan[0]->kelurahan) .', '.($pesanan[0]->koten) .' </h5></p>'
+        ?>
         <div align="left">
             <a href="/riwayat" class="btn btn-danger btn-sm" style="width: 150px; border-radius: 50px">Kembali</a>
         </div>

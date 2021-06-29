@@ -81,20 +81,39 @@
                         class="bg-white p-5 contact-form">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
+                            <input type="text" name="nama" class="form-control" placeholder="Nama Anda" value="{{ old('nama') }}">
+                            <div class="text-danger">
+                                @error('nama')
+                                {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Email Anda" required>
+                            <input type="text" name="email" class="form-control" placeholder="Email Anda" value="{{ old('email') }}">
+                            <div class="text-danger">
+                                @error('email')
+                                {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telepon" class="form-control" placeholder="Telepon" required>
+                            <input type="number" name="telepon" class="form-control" placeholder="Telepon" value="{{ old('email') }}">
+                            <div class="text-danger">
+                                @error('telepon')
+                                {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-group">
-                            <textarea type="text" name="pesan" cols="30" rows="7" class="form-control"
-                                placeholder="Pesan Anda"required></textarea>
+                            <textarea type="text" name="pesan" cols="30" rows="7" class="form-control" placeholder="Pesan Anda" value="{{ old('pesan') }}"></textarea>
+                            <div class="text-danger">
+                                @error('pesan')
+                                {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-sm" onclick="sweetAlert3()">Kirim Pesan</button>
+                            <button class="btn btn-primary btn-sm">Kirim Pesan</button>
                         </div>
                     </form>
                 </div>

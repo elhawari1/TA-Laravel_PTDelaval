@@ -128,7 +128,7 @@ class UserDashboardController extends Controller
                 ]);
             }
         }
-        return Redirect()->back();
+        return Redirect()->back()->with('success', 'Produk Telah Ditambahkan Ke Keranjang Belanja');;
     }
 
     //fungs hapus session keranjang keranjang
@@ -190,6 +190,22 @@ class UserDashboardController extends Controller
     //halaman insert pembayaran
     public function insertPemb()
     {
+        Request()->validate([
+            'koten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required','numeric',
+            'kode_pos' => 'required','numeric',
+        ], [
+            'koten.required' => ' wajib diisi',
+            'kecamatan.required' => ' wajib diisi',
+            'kelurahan.required' => ' wajib diisi',
+            'alamat.required' => ' wajib diisi',
+            'no_hp.required' => ' wajib diisi',
+            'kode_pos.required' => ' wajib diisi',
+        ]);
+
         $daynow = date('Y-m-d');
         $data = [
             'id' => Auth::user()->id,
@@ -226,7 +242,7 @@ class UserDashboardController extends Controller
         }
 
         session()->forget('tambah_keranjang');
-        return redirect()->route('bayar', [$bayar[0]->id_pesanan]);
+        return redirect()->route('bayar', [$bayar[0]->id_pesanan])->with('success', 'Terimakasih Telah Melakukan Pemesanan');
     }
 
     //halaman bayar
@@ -238,6 +254,12 @@ class UserDashboardController extends Controller
 
     public function insBukti()
     {
+        Request()->validate([
+            'gambar' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',
+        ], [
+            'gambar.required' => ' wajib diisi',
+        ]);
+
         $file = Request()->bukti_tf;
         $fileName = time() . '.' . Request()->bukti_tf->extension();
         $file->move(public_path('foto/struk_pembayaran'), $fileName);
@@ -245,7 +267,7 @@ class UserDashboardController extends Controller
         $w = ['id_pesanan' => Request()->id_pesanan,];
 
         $this->PesananModel->editData($w, $data);
-        return redirect()->route('riwayat');
+        return redirect()->route('riwayat')->with('success', 'Terimakasih Telah Melakukan Pemesanan');
     }
 
     // Cari Barang
