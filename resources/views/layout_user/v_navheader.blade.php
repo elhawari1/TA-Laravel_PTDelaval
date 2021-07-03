@@ -11,7 +11,7 @@
 			endforeach;
 		endif; ?>
 		<a class="navbar-brand" href="/pt_delaval">
-			PT. AGRI SERVIS SAKTI
+			PT AGRI SERVIS SAKTI
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span> Menu

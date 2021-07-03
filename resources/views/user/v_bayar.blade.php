@@ -1,5 +1,4 @@
 @extends('layout_user.v_template')
-@section('title','Bayar')
 @section('content')
 
 <div class="container">
@@ -13,7 +12,7 @@
         echo '<p><h5>Untuk melakukan pembayaran silahkan ikuti instruksi di bawah ini :</p>
         <ol>
         <li>Anda dapat mengirim barang pembelian anda seharga Rp. '. number_format($subtotal, 0, ',', '.');
-        echo ' ke rekening XXX (BANK XXX) A.N XXX.</li>
+        echo ' ke rekening 0051-01-050113-53-1 (BANK BRI) A.N TEGUH ANANTA ERLANGGA.</li>
         <li>Setelah melakukan pembayaran silahkan unggah bukti pembayaran anda pada kolom di bawah ini.</li>
         <li>Harap menyelesaikan pembayaran sebelum tanggal yang ditentukan.'
     ?>

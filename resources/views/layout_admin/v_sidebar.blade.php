@@ -2,7 +2,7 @@
   <!-- Brand Logo -->
   <span class="brand-link">
     <span class="font-weight-bold">
-      <font style="color: white;">PT. AGRI SERVIS SAKTI</font>
+      <font style="color: white;">PT AGRI SERVIS SAKTI</font>
     </span>
   </span>
 

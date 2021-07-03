@@ -1,5 +1,4 @@
 @extends('layout_user.v_template')
-@section('title', 'Contact')
 @section('content')
 
     <div class="hero-wrap hero-bread" style="background-image: url('{{ asset('template_user') }}/images/delaval.png');">

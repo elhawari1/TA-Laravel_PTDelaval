@@ -1,6 +1,4 @@
 @extends('layout_user.v_template')
-@section('title', 'Pembayaran saya')
-
 @section('content')
 <div class="container">
     <div class="box-header">

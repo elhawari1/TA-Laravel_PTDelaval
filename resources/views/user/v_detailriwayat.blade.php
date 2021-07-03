@@ -1,5 +1,4 @@
 @extends('layout_user.v_template')
-@section('title','Detail')
 @section('content')
 
 <div class="container">

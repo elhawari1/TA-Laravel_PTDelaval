@@ -1,5 +1,4 @@
 @extends('layout_user.v_template')
-@section('title', 'Riwayat Saya')
 @section('css')
 {{-- Modal Image --}}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
