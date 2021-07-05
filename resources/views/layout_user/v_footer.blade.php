@@ -57,7 +57,7 @@
            <div class="block-23 mb-3">
              <ul>
                <li><span class="icon icon-map-marker"></span><span class="text">Perum Bukit Hijau Blok B-Kav.39,Jalan Raya Tlogomas, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144</span></li>
-               <li><span class="icon icon-phone"></span><span class="text">0341-553-515</span></li>
+               <li><span class="icon icon-phone"></span><span class="text">(0341) 553515</span></li>
                <li><span class="icon icon-envelope"></span><span class="text">info@delaval-indonesia.com</span></li><br>
                <li><span class="text">
                    <h2 class="ftco-heading-2">Ingin Membuat Kandang?</h2>
