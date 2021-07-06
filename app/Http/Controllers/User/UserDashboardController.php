@@ -151,9 +151,9 @@ class UserDashboardController extends Controller
                 if ($keranjang[$idplus]['id_brg'] == $id_brg) {
                     $barang = DB::table('tbl_barang')->where('id_brg', '=', $keranjang[$idplus]['id_brg'])->get()->first();
                     $stok = $barang->stok;
-                    if ($keranjang[$idplus]['jumlah'] < 10) {
+                    if ($keranjang[$idplus]['jumlah'] < $stok) {
                         $keranjang[$idplus]['jumlah'] += 1;
-                        // dd(session('tambah_keranjang'));
+
                         session(['tambah_keranjang' => $keranjang]);
                     }
                 }
@@ -190,21 +190,21 @@ class UserDashboardController extends Controller
     //halaman insert pembayaran
     public function insertPemb()
     {
-        Request()->validate([
-            'koten' => 'required',
-            'kecamatan' => 'required',
-            'kelurahan' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required','numeric',
-            'kode_pos' => 'required','numeric',
-        ], [
-            'koten.required' => ' wajib diisi',
-            'kecamatan.required' => ' wajib diisi',
-            'kelurahan.required' => ' wajib diisi',
-            'alamat.required' => ' wajib diisi',
-            'no_hp.required' => ' wajib diisi',
-            'kode_pos.required' => ' wajib diisi',
-        ]);
+        // Request()->validate([
+        //     'koten' => 'required',
+        //     'kecamatan' => 'required',
+        //     'kelurahan' => 'required',
+        //     'alamat' => 'required',
+        //     'no_hp' => 'required',
+        //     'kode_pos' => 'required',
+        // ], [
+        //     'koten.required' => ' wajib diisi',
+        //     'kecamatan.required' => ' wajib diisi',
+        //     'kelurahan.required' => ' wajib diisi',
+        //     'alamat.required' => ' wajib diisi',
+        //     'no_hp.required' => ' wajib diisi',
+        //     'kode_pos.required' => ' wajib diisi',
+        // ]);
 
         $daynow = date('Y-m-d');
         $data = [
@@ -254,11 +254,11 @@ class UserDashboardController extends Controller
 
     public function insBukti()
     {
-        Request()->validate([
-            'gambar' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',
-        ], [
-            'gambar.required' => ' wajib diisi',
-        ]);
+        // Request()->validate([
+        //     'gambar' => 'required|mimes:jpg,jpeg,bmp,png|max:1024',
+        // ], [
+        //     'gambar.required' => ' wajib diisi',
+        // ]);
 
         $file = Request()->bukti_tf;
         $fileName = time() . '.' . Request()->bukti_tf->extension();

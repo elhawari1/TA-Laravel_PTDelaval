@@ -22,12 +22,7 @@
         <input type="hidden" name="id_pesanan" value="{{ $id_pesanan }}">
         <div class="form-group">
             <h4>Unggah bukti pembayaran</h4>
-            <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true" value="{{ old('bukti_tf') }}">
-            <div class="text-danger">
-                @error('bukti_tf')
-                {{ $message }}
-                @enderror
-            </div>
+            <input id="input-fa" type="file" name="bukti_tf" class="form-control file" data-browse-on-zone-click="true" required>
         </div>
 
         <div align="right">

@@ -36,13 +36,15 @@
                                         <td>{{ $barang->nama }}</td>
                                         <td>Rp. {{ number_format($barang->harga, 0, ',', '.') }}</td>
                                         <td>
+                                            @if ($cart['jumlah'] > 1)
                                             <a href="{{ url('/kurang', [$cart['id_brg']]) }}"><i
-                                                    class="btn btn-danger fas fa-minus"></i></a>
+                                                    class="fas fa-minus"></i></a>
+                                            @endif
                                             {{ $cart['jumlah'] }}
-                                            {{-- @if ($cart['jumlah'] < $barang->stok) --}}
+                                            @if ($cart['jumlah'] < $barang->stok)
                                                 <a href="{{ url('/tambah', [$cart['id_brg']]) }}"><i
-                                                        class="btn btn-success fas fa-plus"></i></a>
-                                            {{-- @endif --}}
+                                                        class="fas fa-plus"></i></a>
+                                            @endif
                                         </td>
                                         <td>Rp. {{ number_format($barang->harga * $cart['jumlah'], 0, ',', '.') }}</td>
                                     </tr>

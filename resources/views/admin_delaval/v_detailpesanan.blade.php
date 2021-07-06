@@ -26,7 +26,6 @@
         <?php
         echo '<p><h5>Tujuan Pengiriman : '.($pesanan[0]->alamat) .', '.($pesanan[0]->kode_pos) .', Kec. '.($pesanan[0]->kecamatan) .', Kel. '.($pesanan[0]->kelurahan) .', '.($pesanan[0]->koten) .' </h5></p>'
         ?>
-
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Detail Pesanan</h3>
@@ -44,6 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $total = 0; ?>
                         <?php $no = 1; ?>
                         @foreach ($pesanan as $data)
                         <?php $harga =  $data->subtotal / $data->jumlah_brg; ?>
@@ -54,7 +54,12 @@
                             <td>{{ $data->jumlah_brg }}</td>
                             <td>Rp.{{ number_format($data->subtotal, 0, ',', '.') }}</td>
                         </tr>
+                        <?php $total += $data->subtotal ; ?>
                         @endforeach
+                        <tr>
+                            <td colspan="4"></td>
+                            <td>Rp. {{ number_format($total, 0, ',', '.') }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

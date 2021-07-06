@@ -72,7 +72,7 @@
           X</button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin ingin menghapus barang ini?</p>
+        <p>Apakah anda yakin ingin menghapus pesan ini?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
