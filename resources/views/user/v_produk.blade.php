@@ -31,7 +31,7 @@
     <div class="ml-5">
         <div class="row text-center mt-4">
             @foreach ($barang as $data)
-                <div class="card ml-2 mb-3" style="width: 18rem;">
+                <div class="card ml-4 mb-3" style="width: 18rem;">
                     <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px"
                         height="250px">
                     <div class="card-body">

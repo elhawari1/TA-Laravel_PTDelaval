@@ -42,7 +42,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pemesan</th>
-                            <th>Alamat Pengirim</th>
+                            <th>Alamat Pembeli</th>
                             <th>Tanggal Pemesanan</th>
                             <th>Batas Bayar</th>
                             <th>Bukti Tranfer</th>

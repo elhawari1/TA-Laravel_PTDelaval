@@ -26,16 +26,7 @@
                     <span class="input-group-text"><span class="fa fa-user"></span></span>
                 </div>
                 <input type="number" name="total" id="total" value="{{ $subtotal }}" hidden>
-                <input type="text" name="nama" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}"
-                    class="form-control" readonly>
-            </div>
-
-            <h6>Kota/Kabupaten</h6>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><span class="fa fa-building"></span></span>
-                </div>
-                <input type="text" name="koten" id="koten" placeholder="Kota / Kabupaten" class="form-control" required>
+                <input type="text" name="nama" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}" class="form-control" readonly>
             </div>
 
             <h6>Alamat Lengkap</h6>
@@ -44,6 +35,14 @@
                     <span class="input-group-text"><span class="fa fa-home"></span></span>
                 </div>
                 <input type="text" name="alamat" id="alamat" placeholder="Alamat Lengkap" class="form-control" required>
+            </div>
+
+            <h6>Kota/Kabupaten</h6>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><span class="fa fa-building"></span></span>
+                </div>
+                <input type="text" name="koten" id="koten" placeholder="Kota / Kabupaten" class="form-control" required>
             </div>
 
             <div class="form-row">
@@ -75,7 +74,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-map-marker"></span></span>
                         </div>
-                        <input type="number" name="kode_pos" id="kode_pos" placeholder="Kode Pos" class="form-control" required>
+                        <input name="kode_pos" id="kode_pos" placeholder="Kode Pos" class="form-control" required>
                     </div>
                 </div>
 
@@ -85,8 +84,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fa fa-phone"></span></span>
                         </div>
-                        <input type="number" name="no_telpon" id="no_telpon" placeholder="No Telpon" class="form-control"
-                            maxlength="13x" required>
+                        <input name="no_telpon" id="no_telpon" placeholder="No Telpon" class="form-control" maxlength="13x" required>
                     </div>
                 </div>
 

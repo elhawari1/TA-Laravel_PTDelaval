@@ -97,7 +97,7 @@
                           @endforeach
                           {{$b}}
                       </h3>
-                      <p>Pesanan belum bayar Total {{$c}}</p>
+                      <p>Pesanan yang belum dibayar</p>
                   </div>
                   <div class="icon">
                       <i class="acon fa fa-file-invoice-dollar"></i>

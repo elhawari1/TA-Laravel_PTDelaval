@@ -18,7 +18,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pemesan</th>
-                            <th>Alamat Pengirim</th>
+                            <th>Alamat Pemesan</th>
                             <th>Tanggal Pemesanan</th>
                             <th>Batas Pembayaran</th>
                             <th>Bukti Tranfer</th>
@@ -38,13 +38,12 @@
                             <td>{{ $data->batas_bayar }}</td>
                             <td>
                                 <?php if ($data->bukti_tf == null) {
-                                        echo 'belum upload struk';
-                                        } else {
-                                        ?>
-                                <img src="{{ url('foto/struk_pembayaran/' . $data->bukti_tf) }}"
-                                    width="150px;cursor:pointer" height="50px" onclick="onClick(this)">
+                                    echo 'belum upload struk';
+                                } else {
+                                ?>
+                                    <img src="{{ url('foto/struk_pembayaran/' . $data->bukti_tf) }}" width="150px;cursor:pointer" height="50px" onclick="onClick(this)">
                                 <?php
-                                        } ?>
+                                } ?>
                             </td>
                             <td>
                                 @if ($data->status == 1)
@@ -59,8 +58,7 @@
                             </td>
                             <td colspan="2">
                                 @if ($data->status != 1)
-                                <a href="/bayar/{{ $data->id_pesanan }}" class="btn-sm btn-success mr-1"
-                                    onclick="sweetAlert()">
+                                <a href="/bayar/{{ $data->id_pesanan }}" class="btn-sm btn-success mr-1" onclick="sweetAlert()">
                                     Bayar
                                 </a>
                                 @endif
@@ -72,7 +70,9 @@
                         @endforeach
                         @if ($no == 1)
                         <tr>
-                            <td colspan="8"><h4>Anda belum melakukan pembelian</h4></td>
+                            <td colspan="8">
+                                <h4>Anda belum melakukan pembelian</h4>
+                            </td>
                         </tr>
                         @endif
                     </tbody>
@@ -101,6 +101,5 @@
         document.getElementById("img01").src = element.src;
         document.getElementById("modal01").style.display = "block";
     }
-
 </script>
 @endsection
