@@ -11,7 +11,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="admin">Home</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div><!-- /.col -->
@@ -89,7 +89,7 @@
               <div class="small-box bg-danger">
                   <div class="inner">
                       <h3><?php $b = 0; $c=0; ?>
-                          @foreach($pesananBelumBayar as $a)
+                          @foreach($pesanDiProses as $a)
                           <?php $b++; ?>
                           @endforeach
                           @foreach($pesanan as $a)
@@ -97,7 +97,7 @@
                           @endforeach
                           {{$b}}
                       </h3>
-                      <p>Pesanan yang belum dibayar</p>
+                      <p>Pesanan yang belum diproses </p>
                   </div>
                   <div class="icon">
                       <i class="acon fa fa-file-invoice-dollar"></i>

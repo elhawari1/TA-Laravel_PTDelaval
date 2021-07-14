@@ -14,7 +14,7 @@
         <img src="{{ asset('template_admin') }}/dist/img/delaval.png" class="img-circle elevation-2" alt="delaval">
       </div>
       <div class="info">
-        <a href="/" class="d-block">
+        <a href="admin" class="d-block">
           <font style="color: white;">{{ Auth::user()->name }}</font>
         </a>
       </div>
@@ -25,7 +25,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="{{ route('/') }}" class="nav-link {{ Route::currentRouteName() === '/' ? 'active' : '' }}">
+          <a href="{{ route('admin') }}" class="nav-link {{ Route::currentRouteName() === 'admin' ? 'active' : '' }}">
             <font style="color: white;"><i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </font>

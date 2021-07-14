@@ -57,7 +57,7 @@
                         <?php $total += $data->subtotal ; ?>
                         @endforeach
                         <tr>
-                            <td colspan="4"></td>
+                            <td colspan="4" align="right">Total :</td>
                             <td>Rp. {{ number_format($total, 0, ',', '.') }}</td>
                         </tr>
                     </tbody>

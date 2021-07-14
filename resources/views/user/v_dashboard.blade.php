@@ -12,7 +12,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="https://api.whatsapp.com/send?phone=6281326191370&text=Saya%20ingin%20konsultasi." style="width: 100px; border-radius: 50px"><img src="{{ asset('template_user') }}/images/slide 5.png" class="d-block w-100" alt="..."> </a>
+                <a href="https://api.whatsapp.com/send?phone=6281326191370&text=Saya%20ingin%20konsultasi." style="width: 100px; border-radius: 50px" target="_blank"><img src="{{ asset('template_user') }}/images/slide 5.png" class="d-block w-100" alt="..."> </a>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('template_user') }}/images/slide 2.jpg" class="d-block w-100" alt="...">

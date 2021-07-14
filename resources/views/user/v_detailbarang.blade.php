@@ -40,7 +40,7 @@
                     @else
                     <a href="" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px" onclick="sweetAlert2()">Tambah Keranjang</a>
                     @endif
-                    <a href="/pt_delaval" class="btn btn-danger pull-left" style="width: 100px; border-radius: 50px">Kembali</a><br>
+                    <a href="/" class="btn btn-danger pull-left" style="width: 100px; border-radius: 50px">Kembali</a><br>
                 </div>
             </div>
         </div>

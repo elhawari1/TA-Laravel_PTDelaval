@@ -82,7 +82,7 @@
         </div>
         <!-- /.box-body -->
         <div align="left">
-            <a href="/pt_delaval" class="btn btn-sm btn-danger" style="width: 150px; border-radius: 50px">Kembali</a>
+            <a href="/" class="btn btn-sm btn-danger" style="width: 150px; border-radius: 50px">Kembali</a>
         </div>
     </div>
 </div>

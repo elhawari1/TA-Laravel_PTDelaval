@@ -23,7 +23,7 @@ class AuthController extends Controller
             if (Auth::attempt(['role' => 2, 'password' => $request->password])) {
                 return redirect('/');
             } else {
-                return redirect('/');
+                return redirect('admin');
             }
         }
     }
@@ -47,7 +47,7 @@ class AuthController extends Controller
                 'role' => '2',
                 'password' => bcrypt($request->password)
             ]);
-            
+
             return redirect()->route('login')->with('success', 'Register Berhasil');
     }
     public function logout()

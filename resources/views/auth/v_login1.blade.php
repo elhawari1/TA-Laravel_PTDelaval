@@ -62,11 +62,6 @@
                 <text for="show-hide">Tampilkan Password</text>
               </div>
             </div>
-            {{-- <div class="col-6">
-              <div class="form-group has-feedback">
-                <a href="/lupa_password">Lupa Password</a>
-              </div>
-            </div> --}}
           </div>
           <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>

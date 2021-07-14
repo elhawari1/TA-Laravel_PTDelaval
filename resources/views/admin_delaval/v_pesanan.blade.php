@@ -21,7 +21,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
                     <li class="breadcrumb-item active">Data Pesanan</li>
                 </ol>
             </div><!-- /.col -->
@@ -65,7 +65,7 @@
                                 } else {
                                 ?>
                                 <img src="{{ url('foto/struk_pembayaran/' . $data->bukti_tf) }}"
-                                    width="150px;cursor:pointer" height="50px" onclick="onClick(this)">
+                                    width="100px;cursor:pointer" height="100px" onclick="onClick(this)">
                                 <?php
                                 } ?>
                             </td>

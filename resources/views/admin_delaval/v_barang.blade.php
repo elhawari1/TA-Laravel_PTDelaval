@@ -30,7 +30,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
                     <li class="breadcrumb-item active">Data Barang</li>
                 </ol>
             </div><!-- /.col -->
@@ -74,7 +74,6 @@
                             <td>{{ $data->stok }}</td>
                             <td>{{ $data->tanggal }}</td>
                             <td colspan="2">
-                                {{-- <a href="/barang/detail/{{ $data->id_brg }}" class="btn btn-sm btn-success">Detail</a> --}}
                                 <a href="/barang/edit/{{ $data->id_brg }}" class="btn btn-warning"><i class="icon fa fa-edit" title="Edit"></i></a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
                                     <i class="icon fa fa-trash" title="Hapus"></i>
@@ -169,7 +168,7 @@
 <script>
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-      $(this).remove(); 
+      $(this).remove();
     });
   }, 3000);
 </script>

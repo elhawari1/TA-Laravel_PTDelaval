@@ -32,6 +32,7 @@ class DashboardController extends Controller
                 'users' => $this->KomentarModel->allPengguna(),
                 'pesanan' => $this->PesananModel->allData(),
                 'pesananBelumBayar' => $this->PesananModel->getPesananBelumBayar(),
+                'pesanDiProses' => $this->PesananModel->getDiProses(),
             ];
 
             // var_dump($this->PesananModel->revokeStok());die;

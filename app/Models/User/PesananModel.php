@@ -44,8 +44,12 @@ class PesananModel extends Model
         DB::table('tbl_pesanan')->where($w)->update($data);
     }
 
+    //ambil data proses pada pesanan
+    public function getDiProses()
+    {
+        return DB::table('tbl_pesanan')->where('status', 3)->get();
+    }
     // stok kembali
-
     public function getPesananBelumBayar()
     {
       return DB::table('tbl_pesanan')->where('status',0)->get();

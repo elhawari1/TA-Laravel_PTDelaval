@@ -66,7 +66,7 @@
                 <h4>Harga</h4>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Rp.</span>
+                        <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
                     </div>
                     <input type="text" name="harga" placeholder="Harga Barang" class="form-control" value="{{ old('harga') }}">
                     <div class="text-danger">
@@ -74,7 +74,7 @@
                         {{ $message }}
                         @enderror
                     </div>
-                </div>
+                </div> 
 
                 <h4>Stok</h4>
                 <div class="input-group mb-3">

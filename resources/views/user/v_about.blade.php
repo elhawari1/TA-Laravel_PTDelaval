@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 ftco-animate"><br>
-            <p class="breadcrumbs text-center"><span class="mr-2"><a href="/pt_delaval">
+            <p class="breadcrumbs text-center"><span class="mr-2"><a href="/">
                         <font color="blue">Home
                     </a></span>
             <h1 class="mb-0 bread text-center font-weight-bold">

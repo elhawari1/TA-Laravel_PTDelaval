@@ -72,8 +72,8 @@
        <div class="col-md-12 text-center">
          <p>Copyright &copy;<script>
              document.write(new Date().getFullYear());
-           </script> <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="" target="_blank">PT.Delaval</a></p>
+           </script> <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="/" target="_blank">PT.Agri Servis Sakti</a></p>
        </div>
-     </div>
+     </div> 
    </div>
  </footer>

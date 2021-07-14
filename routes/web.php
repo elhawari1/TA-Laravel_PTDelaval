@@ -28,7 +28,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
     //Halaman Admin
-    Route::get('/', [DashboardController::class, 'index'])->name('/');
+    Route::get('admin', [DashboardController::class, 'index'])->name('admin');
     // admin barang
     Route::get('/barang', [BarangController::class, 'index'])->name('barang');
     // admin detail barang
@@ -65,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Halaman User
 // Route::get('/', [UserDashboardController::class, 'index'])->name('pt_delaval');
-Route::get('/pt_delaval', [UserDashboardController::class, 'index'])->name('pt_delaval');
+Route::get('/', [UserDashboardController::class, 'index'])->name('/');
 // user detail barang
 Route::get('/detail/barang/{id_brg}', [UserDashboardController::class, 'detail']);
 // user produk Kami
