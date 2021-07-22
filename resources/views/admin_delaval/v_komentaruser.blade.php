@@ -86,7 +86,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-        <a href="/barang/delete/{{ $data->id_komentar }}" class="btn btn-outline">Yes</a>
+        <a href="/komentar/delete/{{ $data->id_komentar }}" class="btn btn-outline">Yes</a>
       </div>
     </div>
     <!-- /.modal-content -->

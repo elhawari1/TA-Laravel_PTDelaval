@@ -18,9 +18,9 @@ class KomentarModel extends Model
         DB::table('komentar')->insert($data);
     }
 
-    public function deleteData($id)
+    public function deleteData($id_komentar)
     {
-        DB::table('komentar')->where('id', $id)->delete();
+        DB::table('komentar')->where('id_komentar', $id_komentar)->delete();
     }
 
     public function allPengguna()

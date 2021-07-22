@@ -49,7 +49,6 @@ class DashboardController extends Controller
             return view('user.v_dashboard', $data);
         } else {
         $data = [
-            // 'barang' => $this->BarangModel->allData(),
             'komentar' => $this->BarangModel->allDataKomentar(),
         ];
         return view('admin_delaval.v_komentaruser', $data);
@@ -58,7 +57,6 @@ class DashboardController extends Controller
 
     public function delete($id_komentar)
     {
-        //hapus foto di folder public
         $this->KomentarModel->deleteData($id_komentar);
         return redirect()->route('komentar')->with('pesan', 'Data Berhasil Dihapus');
     }
