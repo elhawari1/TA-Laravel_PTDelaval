@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -18,7 +19,6 @@ class AuthController extends Controller
     {
         if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->back()->with('pesan', 'Silahkan masukkan kembali email dan password anda');
-
         } else {
             if (Auth::attempt(['role' => 2, 'password' => $request->password])) {
                 return redirect('/');
@@ -41,14 +41,17 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed', //field_confirmation
 
         ]);
-            User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'role' => '2',
-                'password' => bcrypt($request->password)
-            ]);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => '2',
+            'password' => bcrypt($request->password)
+        ]);
 
-            return redirect()->route('login')->with('success', 'Register Berhasil');
+        // MEngirimkan email verifikasi
+        // event(new Registered($user));
+
+        return redirect()->route('login')->with('success', 'Register Berhasil');
     }
     public function logout()
     {

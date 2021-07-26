@@ -42,6 +42,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pemesan</th>
+                            <th>Nomer Telepon</th>
                             <th>Alamat Pembeli</th>
                             <th>Tanggal Pemesanan</th>
                             <th>Batas Bayar</th>
@@ -56,6 +57,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->name }}</td>
+                            <td>{{ $data->no_hp }}</td>
                             <td>{{ $data->alamat }}</td>
                             <td>{{ $data->tgl_pesan }}</td>
                             <td>{{ $data->batas_bayar }}</td>

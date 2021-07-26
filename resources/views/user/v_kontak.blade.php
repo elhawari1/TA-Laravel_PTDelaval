@@ -1,4 +1,8 @@
 @extends('layout_user.v_template')
+@section('css')
+<!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.css">
+@endsection
 @section('content')
 
 <div class="hero-wrap hero-bread" style="background-image: url('{{ asset('template_user') }}/images/delaval.png');">
@@ -99,7 +103,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea type="text" name="pesan" cols="30" rows="7" class="form-control" placeholder="Pesan Anda" value="{{ old('pesan') }}"></textarea>
+                        <textarea type="text" name="pesan" cols="30" rows="7" class="form-control" id="summernote" placeholder="Pesan Anda" value="{{ old('pesan') }}"></textarea>
                         <div class="text-danger">
                             @error('pesan')
                             {{ $message }}
@@ -117,4 +121,23 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('js')
+<!-- Summernote -->
+<script src="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
+
 @endsection

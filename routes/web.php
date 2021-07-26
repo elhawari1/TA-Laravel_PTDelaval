@@ -8,6 +8,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\KomentarController;
 use App\Http\Controllers\User\UserDashboardController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,16 @@ Route::post('/login', [AuthController::class, 'postLogin']);
 Route::get('/register', [AuthController::class, 'getRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'postRegister']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::group(['middleware' => 'auth'], function () {
     //Halaman Admin

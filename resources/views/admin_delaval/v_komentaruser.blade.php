@@ -4,9 +4,9 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="{{ asset('template_admin'
-) }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+<link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.css">
 {{-- Modal Image --}}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -86,7 +86,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-        <a href="/komentar/delete/{{ $data->id_komentar }}" class="btn btn-outline">Yes</a>
+         <a href="/komentar/delete/{{ $data->id_komentar }}" class="btn btn-outline">Yes</a>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -96,6 +96,8 @@
 @endforeach
 @endsection
 @section('js')
+<!-- Summernote -->
+<script src="{{ asset('template_admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('template_admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ asset('template_admin') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

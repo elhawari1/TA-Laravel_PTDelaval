@@ -57,8 +57,12 @@
                 <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
                 <div class="card-body">
                     <span class="card-title ml-4">{{ $data->nama }}</span>
-                    <span class="badge badge-success mb-3">Rp.{{ number_format($data->harga, 0, ',', '.') }}</span>
-                    <p class="card-text">{{ $data->deskripsi }}</p>
+                    <span class="badge badge-success mb-2">Rp.{{ number_format($data->harga, 0, ',', '.') }}</span>
+                    @if ($data->stok != 0)
+                            <p class="card-text">tersisa  {{ $data->stok }} buah</p>
+                            @else
+                            <strong class="card-text text-danger">Barang Habis</strong>
+                    @endif
                 </div>
                 <div class="card-footer bg-transparent">
                     <div class="row">
@@ -66,7 +70,7 @@
                             @if ($data->stok != 0)
                             <a href="/keranjang/tambah/{{ $data->id_brg }}" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px">Beli</a>
                             @else
-                            <a href="" class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert2()">Beli</a>
+                                <button class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert2()" disabled>Beli</button>
                             @endif
                         </div>
                         <div class="col">

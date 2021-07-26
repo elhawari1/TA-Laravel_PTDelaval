@@ -41,7 +41,7 @@
                                     echo 'belum upload struk';
                                 } else {
                                 ?>
-                                    <img src="{{ url('foto/struk_pembayaran/' . $data->bukti_tf) }}" width="150px;cursor:pointer" height="50px" onclick="onClick(this)">
+                                    <img src="{{ url('foto/struk_pembayaran/' . $data->bukti_tf) }}" width="100px;cursor:pointer" height="100px" onclick="onClick(this)">
                                 <?php
                                 } ?>
                             </td>

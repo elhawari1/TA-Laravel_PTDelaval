@@ -22,8 +22,13 @@
                         </tr>
 
                         <tr>
+                            @if ($barang->stok != 0)
                             <td>Stok</td>
                             <td><strong>{{ $barang->stok }}</strong></td>
+                            @else
+                            <td>Stok</td>
+                            <td><strong class="card-text text-danger"> Barang Habis</strong></td>
+                            @endif
                         </tr>
 
                         <tr>
@@ -38,7 +43,7 @@
                     @if ($barang->stok != 0)
                     <a href="/keranjang/tambah/{{ $barang->id_brg }}" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px">Tambah Keranjang</a>
                     @else
-                    <a href="" class="btn btn-primary pull-left" style="width: 200px; border-radius: 50px" onclick="sweetAlert2()">Tambah Keranjang</a>
+                    <button class="btn btn-sm btn-success" style="width: 100px; border-radius: 50px" onclick="sweetAlert2()" disabled>Beli</button>
                     @endif
                     <a href="/" class="btn btn-danger pull-left" style="width: 100px; border-radius: 50px">Kembali</a><br>
                 </div>
