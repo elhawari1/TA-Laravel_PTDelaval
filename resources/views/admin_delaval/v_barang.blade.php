@@ -59,12 +59,14 @@
                             <th>Stok</th>
                             <th>Tanggal</th>
                             <th style="width:10%;">Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
                         @foreach ($barang as $data)
                         <tr>
+                            @if ($data->status == 0)
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->nama }}</td>
                             <td><img src="{{ url('foto/barang/' . $data->gambar) }}" width="100px;cursor:pointer" height="100px" onclick="onClick(this)"></td>
@@ -72,12 +74,17 @@
                             <td>Rp.{{ number_format($data->harga, 0, ',', '.') }}</td>
                             <td>{{ $data->stok }}</td>
                             <td>{{ $data->tanggal }}</td>
-                            <td colspan="2">
+                            <td>
                                 <a href="/barang/edit/{{ $data->id_brg }}" class="btn btn-warning"><i class="icon fa fa-edit" title="Edit"></i></a>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
+                                {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
                                     <i class="icon fa fa-trash" title="Hapus"></i>
-                                </button>
+                                </button> --}}
+                                <a href="/barang/softdelete/{{ $data->id_brg }}" class="btn btn-danger"><i class="icon fa fa-trash" title="Hapus"></i></a>
                             </td>
+                            <td>{{ $data->status }}</td>
+                            @elseif ($data->status == 1)
+
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

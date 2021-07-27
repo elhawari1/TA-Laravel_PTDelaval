@@ -53,15 +53,16 @@
     <div class="ml-5">
         <div class="row text-center mt-4">
             @foreach ($barang as $data)
+            @if ($data->status == 0)
             <div class="card ml-3 mb-3" style="width: 18rem;">
                 <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px" height="250px">
                 <div class="card-body">
                     <span class="card-title ml-4">{{ $data->nama }}</span>
                     <span class="badge badge-success mb-2">Rp.{{ number_format($data->harga, 0, ',', '.') }}</span>
                     @if ($data->stok != 0)
-                            <p class="card-text">tersisa  {{ $data->stok }} buah</p>
-                            @else
-                            <strong class="card-text text-danger">Barang Habis</strong>
+                        <p class="card-text">tersisa  {{ $data->stok }} buah</p>
+                        @else
+                        <strong class="card-text text-danger">Barang Habis</strong>
                     @endif
                 </div>
                 <div class="card-footer bg-transparent">
@@ -79,6 +80,9 @@
                     </div>
                 </div>
             </div>
+            @elseif ($data->status == 1)
+
+            @endif
             @endforeach
         </div>
         <div class="row mt-5">

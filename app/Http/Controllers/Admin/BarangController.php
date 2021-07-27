@@ -74,6 +74,7 @@ class BarangController extends Controller
             'harga' => Request()->harga,
             'stok' => Request()->stok,
             'tanggal' => Request()->tanggal,
+            'status' => 0,
         ];
 
         $this->BarangModel->addData($data);
@@ -155,5 +156,12 @@ class BarangController extends Controller
         }
         $this->BarangModel->deleteData($id_brg);
         return redirect()->route('barang')->with('pesan', 'Data Berhasil Dihapus');
+    }
+
+    public function softdelete($id_brg)
+    {
+        $data = array('status' => 1,);
+        $this->BarangModel->softDelete($id_brg, $data);
+        return redirect()->route('barang');
     }
 }

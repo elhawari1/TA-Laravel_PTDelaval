@@ -43,6 +43,10 @@ class BarangModel extends Model
         DB::table('tbl_barang')->where('id_brg', $id_brg)->delete();
     }
 
+    public function softDelete($id_brg, $data)
+    {
+        DB::table('tbl_barang')->where('id_brg', $id_brg)->update($data);
+    }
     //data komentar
     public function allDataKomentar()
     {

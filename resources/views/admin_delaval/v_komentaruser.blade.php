@@ -55,7 +55,7 @@
               <td>{{ $data->nama }}</td>
               <td>{{ $data->email }}</td>
               <td>{{ $data->telepon }}</td>
-              <td>{{ $data->pesan }}</td>
+              <td>{!! $data->pesan !!}</td>
               <td>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_komentar }}">
                   <i class="icon fa fa-trash" title="Hapus"></i>

@@ -28,15 +28,15 @@ Route::get('/register', [AuthController::class, 'getRegister'])->name('register'
 Route::post('/register', [AuthController::class, 'postRegister']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+// Route::get('/email/verify', function () {
+//     return view('auth.verify-email');
+// })->middleware('auth')->name('verification.notice');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
 
-    return redirect('/');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+//     return redirect('/');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::group(['middleware' => 'auth'], function () {
     //Halaman Admin
@@ -55,6 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/barang/update/{id_brg}', [BarangController::class, 'update']);
     // admin hapus barang
     Route::get('/barang/delete/{id_brg}', [BarangController::class, 'delete']);
+    // admin hapus barang tidak permanen
+    Route::get('/barang/softdelete/{id_brg}', [BarangController::class, 'softdelete'])->name('softdelete');
     // admin pesanan
     Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
     Route::get('/pesanan/terima/{id}', [PesananController::class, 'terima'])->name('terima');

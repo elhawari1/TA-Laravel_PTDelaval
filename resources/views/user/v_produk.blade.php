@@ -31,6 +31,7 @@
     <div class="ml-5">
         <div class="row text-center mt-4">
             @foreach ($barang as $data)
+            @if ($data->status == 0)
                 <div class="card ml-4 mb-3" style="width: 18rem;">
                     <img src="{{ url('foto/barang/' . $data->gambar) }}" class="card-img-top" alt="..." width="100px"
                         height="250px">
@@ -59,10 +60,11 @@
                         </div>
                     </div>
                 </div>
+                @elseif ($data->status == 1)
+                
+                @endif
             @endforeach
         </div>
-
-
         <div class="row mt-3">
             {{ $barang->links('pagination::bootstrap-4') }}
         </div>
