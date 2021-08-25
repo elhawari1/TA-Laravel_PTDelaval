@@ -147,21 +147,21 @@ class BarangController extends Controller
         return redirect()->route('barang')->with('pesan', 'Data Berhasil Diubah');
     }
 
-    public function delete($id_brg)
-    {
-        //hapus foto di folder public
-        $barang = $this->BarangModel->detailData($id_brg);
-        if ($barang->gambar <> "") {
-            unlink(public_path('foto/barang') . '/' . $barang->gambar);
-        }
-        $this->BarangModel->deleteData($id_brg);
-        return redirect()->route('barang')->with('pesan', 'Data Berhasil Dihapus');
-    }
+    // public function delete($id_brg)
+    // {
+    //     //hapus foto di folder public
+    //     $barang = $this->BarangModel->detailData($id_brg);
+    //     if ($barang->gambar <> "") {
+    //         unlink(public_path('foto/barang') . '/' . $barang->gambar);
+    //     }
+    //     $this->BarangModel->deleteData($id_brg);
+    //     return redirect()->route('barang')->with('pesan', 'Data Berhasil Dihapus');
+    // }
 
     public function softdelete($id_brg)
     {
         $data = array('status' => 1,);
         $this->BarangModel->softDelete($id_brg, $data);
-        return redirect()->route('barang');
+        return redirect()->route('barang')->with('pesan', 'Data Berhasil Dihapus');
     }
 }

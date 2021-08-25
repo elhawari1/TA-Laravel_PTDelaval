@@ -59,7 +59,6 @@
                             <th>Stok</th>
                             <th>Tanggal</th>
                             <th style="width:10%;">Action</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,12 +75,11 @@
                             <td>{{ $data->tanggal }}</td>
                             <td>
                                 <a href="/barang/edit/{{ $data->id_brg }}" class="btn btn-warning"><i class="icon fa fa-edit" title="Edit"></i></a>
-                                {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id_brg }}">
                                     <i class="icon fa fa-trash" title="Hapus"></i>
-                                </button> --}}
-                                <a href="/barang/softdelete/{{ $data->id_brg }}" class="btn btn-danger"><i class="icon fa fa-trash" title="Hapus"></i></a>
+                                </button>
+                                {{-- <a href="/barang/softdelete/{{ $data->id_brg }}" class="btn btn-danger"><i class="icon fa fa-trash" title="Hapus"></i></a> --}}
                             </td>
-                            <td>{{ $data->status }}</td>
                             @elseif ($data->status == 1)
 
                             @endif
@@ -110,7 +108,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-                <a href="/barang/delete/{{ $data->id_brg }}" class="btn btn-outline">Yes</a>
+                <a href="/barang/softdelete/{{ $data->id_brg }}" class="btn btn-outline">Yes</a>
             </div>
         </div>
         <!-- /.modal-content -->

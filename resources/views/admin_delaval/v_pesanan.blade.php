@@ -48,7 +48,7 @@
                             <th>Batas Bayar</th>
                             <th>Bukti Tranfer</th>
                             <th>Status</th>
-                            <th style="width:10%;">Aksi</th>
+                            <th style="width:15%;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,8 +59,8 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->no_hp }}</td>
                             <td>{{ $data->alamat }}</td>
-                            <td>{{ $data->tgl_pesan }}</td>
-                            <td>{{ $data->batas_bayar }}</td>
+                            <td><?php $date = date_create($data->tgl_pesan); echo date_format($date,'d-m-Y'); ?></td>
+                            <td><?php $date = date_create($data->batas_bayar); echo date_format($date,'d-m-Y'); ?></td>
                             <td>
                                 <?php if ($data->bukti_tf == null) {
                                 echo 'belum upload struk';

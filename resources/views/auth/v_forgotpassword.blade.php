@@ -33,16 +33,16 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <h2><b>LOGIN</b></h2>
+      <h2><b>Reset Password</b></h2>
     </div>
     <div class="card-body">
       @if(session('status'))
         <p class="login-box-msg">{{ session('status') }}</p>
       @endif
 
-      <p class="login-box-msg">Silahkan login untuk melanjutkan</p>
+      <p class="login-box-msg">Masukkan email yang anda gunakan untuk mendaftar</p>
 
-      <form action="{{ route('login') }}" method="post">
+      <form action="{{ route('password.email') }}" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
@@ -51,28 +51,13 @@
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          @error('email')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password" id="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="form-group has-feedback">
-              <input type="checkbox" id="show-password">
-              <text for="show-hide">Tampilkan Password</text>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
-        <a href="{{ route('password.request') }}" class="btn btn-danger btn-block">Lupa Password</a>
+        <button type="submit" class="btn btn-primary btn-block">Kirim link reset password</button>
       </form>
-      <br>Belum punya akun?<a href="/register" class="text-center"> Daftar sekarang!</a>
-      {{-- <br>Lupa password?<a href="" class="text-center"> Reset</a> --}}
+      <br><a href="{{ route('login') }}" class="text-center"> Kembali</a>
     </div>
     <!-- /.card-body -->
   </div>

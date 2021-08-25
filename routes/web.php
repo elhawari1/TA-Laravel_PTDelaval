@@ -28,15 +28,37 @@ Route::get('/register', [AuthController::class, 'getRegister'])->name('register'
 Route::post('/register', [AuthController::class, 'postRegister']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route::get('/email/verify', function () {
-//     return view('auth.verify-email');
-// })->middleware('auth')->name('verification.notice');
+Route::get('/email/verify', [AuthController::class, 'getEmailVerificationNotify'])
+    ->middleware('auth')
+    ->name('verification.notice');
 
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
+Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'getEmailVerificationLink'])
+    ->middleware(['auth', 'signed'])
+    ->name('verification.verify');
 
-//     return redirect('/');
-// })->middleware(['auth', 'signed'])->name('verification.verify');
+Route::post('/email/verification-notification', [AuthController::class, 'postVerificationSend'])
+    ->middleware(['auth', 'throttle:6,1'])
+    ->name('verification.send');
+
+Route::get('/forgot-password', [AuthController::class, 'getPasswordRequest'])
+    ->middleware('guest')
+    ->name('password.request');
+
+Route::post('/forgot-password', [AuthController::class, 'postPasswordEmail'])
+    ->middleware('guest')
+    ->name('password.email');
+
+Route::get('/reset-password/{token}', [AuthController::class, 'getPasswordReset'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [AuthController::class, 'postPasswordUpdate'])
+    ->middleware('guest')
+    ->name('password.update');
+
+Route::get('/test', function (\Illuminate\Http\Request $request) {
+    return $request->user()->sendEmailVerificationNotification();
+});
 
 Route::group(['middleware' => 'auth'], function () {
     //Halaman Admin
@@ -54,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
     // admin add barang insert
     Route::post('/barang/update/{id_brg}', [BarangController::class, 'update']);
     // admin hapus barang
-    Route::get('/barang/delete/{id_brg}', [BarangController::class, 'delete']);
+    // Route::get('/barang/delete/{id_brg}', [BarangController::class, 'delete']);
     // admin hapus barang tidak permanen
     Route::get('/barang/softdelete/{id_brg}', [BarangController::class, 'softdelete'])->name('softdelete');
     // admin pesanan
@@ -93,28 +115,30 @@ Route::post('/kontak/insert', [KomentarController::class, 'insert']);
 //Cari barang
 Route::get('/pt_delaval/barang', [UserDashboardController::class, 'cariBarang']);
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
 // user keranjang Kami
-Route::get('/riwayat', [UserDashboardController::class, 'riwayat'])->name('riwayat');
+    Route::get('/riwayat', [UserDashboardController::class, 'riwayat'])->name('riwayat');
 // admin detailriwayat
-Route::get('/riwayat/detail/{id_pesanan}', [UserDashboardController::class, 'detail_riwayat']);
+    Route::get('/riwayat/detail/{id_pesanan}', [UserDashboardController::class, 'detail_riwayat']);
+    // admin detail hapus pesanan
+    Route::get('/riwayat/hapus/{id_pesanan}', [UserDashboardController::class, 'hapusriwayat']);
 // user keranjang Kami
-Route::get('/keranjang', [UserDashboardController::class, 'keranjang'])->name('keranjang');
+    Route::get('/keranjang', [UserDashboardController::class, 'keranjang'])->name('keranjang');
 // user tambah keranjang Kami
-Route::get('/keranjang/tambah/{id}', [UserDashboardController::class, 'tambah_keranjang']);
+    Route::get('/keranjang/tambah/{id}', [UserDashboardController::class, 'tambah_keranjang']);
 // user hapus semua keranjang
-Route::get('/hapuskeranjang', [UserDashboardController::class, 'hapus_keranjang'])->name('hapuskeranjang');
+    Route::get('/hapuskeranjang', [UserDashboardController::class, 'hapus_keranjang'])->name('hapuskeranjang');
 // user tambah satuan pada tombol plus keranjang
-Route::get('/tambah/{id}', [UserDashboardController::class, 'tambah']);
+    Route::get('/tambah/{id}', [UserDashboardController::class, 'tambah']);
 // user kurang satuan pada tombol minus keranjang
-Route::get('/kurang/{id}', [UserDashboardController::class, 'kurang']);
+    Route::get('/kurang/{id}', [UserDashboardController::class, 'kurang']);
 // user pembayaran
-Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran'])->name('pembayaran');
+    Route::get('/pembayaran', [UserDashboardController::class, 'pembayaran'])->name('pembayaran');
 // user insert pembayaran
-Route::post('/pembayaran/insert', [UserDashboardController::class, 'insertPemb']);
+    Route::post('/pembayaran/insert', [UserDashboardController::class, 'insertPemb']);
 //user bayar
-Route::get('/bayar/{id}', [UserDashboardController::class, 'bayar'])->name('bayar');
+    Route::get('/bayar/{id}', [UserDashboardController::class, 'bayar'])->name('bayar');
 //user bayar
-Route::post('/bayar/insert', [UserDashboardController::class, 'insBukti']);
-    }
+    Route::post('/bayar/insert', [UserDashboardController::class, 'insBukti']);
+}
 );

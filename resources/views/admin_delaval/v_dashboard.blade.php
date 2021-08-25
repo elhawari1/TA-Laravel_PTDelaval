@@ -32,7 +32,9 @@
                     <div class="inner">
                         <h3><?php $b = 0; ?>
                             @foreach($barang as $a)
+                            @if($a->status == 0)
                             <?php $b++; ?>
+                            @endif
                             @endforeach
                             {{$b}}
                         </h3>

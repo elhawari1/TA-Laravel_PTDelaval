@@ -19,77 +19,85 @@
   <link rel="stylesheet" href="{{ asset('template_admin') }}/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition register-page">
-<div class="register-box">
+<body class="hold-transition login-page">
+@if (session('pesan'))
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h4><i class="icon fa fa-check"></i>Data yang anda masukkan salah</h4>
+    {{ session('pesan') }}.
+  </div>
+@endif
+
+@include('sweetalert::alert')
+<div class="login-box">
+  <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <h2><b>REGISTER</b></h2>
+      <h2><b>Reset Password</b></h2>
     </div>
     <div class="card-body">
       @if(session('status'))
         <p class="login-box-msg">{{ session('status') }}</p>
       @endif
 
-      <p class="login-box-msg">Isi form untuk membuat akun</p>
+      <p class="login-box-msg">Silahkan buat password baru</p>
 
-      <form action="{{ route('register') }}" method="post">
+      <form action="{{ route('password.update') }}" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
-          <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ old('name') }}"
-                 required>
-          @error('name')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
-          @error('email')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
+          <input type="email" name="email" class="form-control" placeholder="Email"
+                 value="{{ old('email', $request->email) }}" readonly>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          @error('email')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Password"
                  value="{{ old('password') }}" required>
-          @error('passsword')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          @error('passsword')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="input-group mb-3">
           <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password"
                  value="{{ old('password_confirmation') }}" required>
-          @error('password_confirmation')
-          <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          @error('password_confirmation')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        {{-- <div class="row">
+          <div class="col-8">
+            <div class="form-group has-feedback">
+              <input type="checkbox" id="show-password">
+              <text for="show-hide">Tampilkan Password</text>
+            </div>
+          </div>
+        </div> --}}
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <button type="submit" class="btn btn-primary btn-block">Simpan</button>
       </form>
-      <br><font color="black">Sudah punya akun?</font> <a href="/login" class="text-center">Login sekarang!</a>
-      {{-- <br>Lupa password?<a href="{{ route('password.request') }}" class="text-center"> Reset</a> --}}
+      <br><a href="{{ route('login') }}" class="text-center"> Batal</a>
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
 </div>
-<!-- /.register-box -->
+<!-- /.login-box -->
 
 <!-- jQuery -->
 <script src="{{ asset('template_admin') }}/plugins/jquery/jquery.min.js"></script>
@@ -98,6 +106,28 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('template_admin') }}/dist/js/adminlte.min.js"></script>
 
+<!-- jquery show password -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#show-password').click(function () {
+      if ($(this).is(':checked')) {
+        $('#password').attr('type', 'text');
+      } else {
+        $('#password').attr('type', 'password');
+      }
+    });
+  });
+</script>
+
+<!-- Menghilangkan Modal -->
+<script>
+  window.setTimeout(function () {
+    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+      $(this).remove();
+    });
+  }, 3000);
+</script>
 </body>
 
 </html>

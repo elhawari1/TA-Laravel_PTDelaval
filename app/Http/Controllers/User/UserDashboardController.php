@@ -190,21 +190,6 @@ class UserDashboardController extends Controller
     //halaman insert pembayaran
     public function insertPemb()
     {
-        // Request()->validate([
-        //     'koten' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kelurahan' => 'required',
-        //     'alamat' => 'required',
-        //     'no_hp' => 'required',
-        //     'kode_pos' => 'required',
-        // ], [
-        //     'koten.required' => ' wajib diisi',
-        //     'kecamatan.required' => ' wajib diisi',
-        //     'kelurahan.required' => ' wajib diisi',
-        //     'alamat.required' => ' wajib diisi',
-        //     'no_hp.required' => ' wajib diisi',
-        //     'kode_pos.required' => ' wajib diisi',
-        // ]);
 
         $daynow = date('Y-m-d');
         $data = [
@@ -220,29 +205,43 @@ class UserDashboardController extends Controller
             'batas_bayar' => date('Y-m-d', strtotime('+1 day', strtotime($daynow))),
             'status' => 0,
         ];
-        $this->PesananModel->addData('tbl_pesanan', $data);
-        $bayar = $this->PesananModel->lastIns();
         $keranjang = session('tambah_keranjang');
         $jml = count($keranjang);
-
+        $total = 0;
+        $ttl = 0;
+        // print_r($jml);die;
         for ($i = 0; $i < $jml; $i++) {
             $subtotal = $keranjang[$i]['jumlah'] * $keranjang[$i]['harga'];
-            $detail = array(
-                'id_pesanan' => $bayar[0]->id_pesanan,
-                'id_brg'  => $keranjang[$i]['id_brg'],
-                'jumlah_brg'  => $keranjang[$i]['jumlah'],
-                'subtotal'  => $subtotal,
-            );
+            $total += $keranjang[$i]['id_brg'];
             $barang = DB::table('tbl_barang')->where('id_brg', '=', $keranjang[$i]['id_brg'])->get();
             $stok = $barang[0]->stok -  $keranjang[$i]['jumlah'];
-            $data_upd = array('stok' => $stok,);
-            DB::table('tbl_barang')->where('id_brg', $keranjang[$i]['id_brg'])->update($data_upd);
-
-            $this->PesananModel->addData('tbl_detail_pesanan', $detail);
+            if ($stok >= 0) {
+                $ttl += $keranjang[$i]['id_brg'];
+                $data_upd = array('stok' => $stok,);
+                DB::table('tbl_barang')->where('id_brg', $keranjang[$i]['id_brg'])->update($data_upd);
+            }
         }
 
-        session()->forget('tambah_keranjang');
-        return redirect()->route('bayar', [$bayar[0]->id_pesanan])->with('success', 'Terimakasih Telah Melakukan Pemesanan');
+        if ($total != $ttl) {
+            session()->forget('tambah_keranjang');
+            return redirect()->route('keranjang')->with('status', 'Maaf Stok Barang Telah Habis');
+        }else{
+            $this->PesananModel->addData('tbl_pesanan', $data);
+            $bayar = $this->PesananModel->lastIns();
+            // print_r($bayar[0]->id_pesanan); die;
+            for ($i = 0; $i < $jml; $i++) {
+                $subtotal = $keranjang[$i]['jumlah'] * $keranjang[$i]['harga'];
+                $detail = array(
+                    'id_pesanan' => $bayar[0]->id_pesanan,
+                    'id_brg'  => $keranjang[$i]['id_brg'],
+                    'jumlah_brg'  => $keranjang[$i]['jumlah'],
+                    'subtotal'  => $subtotal,
+                );
+                $this->PesananModel->addData('tbl_detail_pesanan', $detail);
+            }
+            session()->forget('tambah_keranjang');
+            return redirect()->route('bayar', [$bayar[0]->id_pesanan])->with('success', 'Terimakasih Telah Melakukan Pemesanan');
+        }
     }
 
     //halaman bayar
@@ -281,5 +280,21 @@ class UserDashboardController extends Controller
         } else {
             return view('user.v_produk', $data);
         }
+    }
+
+    // hapus riwaya atau pembatalan
+    public function hapusriwayat($id_pesanan)
+    {
+
+        $barang = DB::table('tbl_detail_pesanan')->where('id_pesanan', '=', $id_pesanan)->get();
+        foreach ($barang as $b) {
+            $brg = DB::table('tbl_barang')->where('id_brg', '=', $b->id_brg)->get();
+            $stok = $b->jumlah_brg + $brg[0]->stok;
+            $data = array('stok' => $stok, );
+            $this->BarangModel->editData($b->id_brg, $data);
+        }
+        $this->PesananModel->deleteDetailPesanan($id_pesanan);
+        $this->PesananModel->deletePesanan($id_pesanan);
+        return redirect()->route('/')->with('success', 'Pesanan Anda Berhasil Dibatalkan');
     }
 }
